@@ -26,6 +26,7 @@
 
     cout << "La cantidad de numeros primos es: " << primos << endl; 
 
+
     /* 2 - Dada una lista de números compuesta por 10 grupos y cada grupo separado del 
     siguiente por un cero, se pide determinar e informar: 
     a) Para cada uno de los grupos el máximo de los números pares y el máximo de los 
@@ -73,7 +74,8 @@
         cout << "Porcentaje de positivos grupo " << i << ": " << (positivos*100)/(float)totalGrupo << "%" << endl; 
         cout << "Porcentaje de negativos grupo " << i << ": " << (negativos*100)/(float)totalGrupo << "%" << endl << endl; 
 
-    } 
+    }
+
 
     /* 3 - Se dispone de una lista de 10 grupos de números enteros separados entre ellos por
     ceros. Se pide determinar e informar:
@@ -88,7 +90,7 @@
     int grupoConMayorPorcentajeImpPos;
     float mayorPorcentajeNumerosImpPos;
 
-    for(int i=1; i <= 3; i++){
+    for(int i=1; i <= 10; i++){
 
         int cantidadNumeros = 0;
         int imparesPositivos = 0;
@@ -162,3 +164,198 @@
     }
     cout << "Grupo con mayor porcentaje de impares positivos: " << grupoConMayorPorcentajeImpPos << ". "<< mayorPorcentajeNumerosImpPos << "%" << endl;
     cout << "Cantidad de grupos ordenados de mayor a menor: " << gruposOrdenados << endl;
+
+
+    /* 4 - Dada una lista de números enteros todos distintos entre sí y que finaliza con un cero,
+    determinar e informar con un cartel aclaratorio si los números primos que aparezcan en la
+    misma están ordenados de menor a mayor. Los números positivos primos pueden no ser
+    consecutivos, pero sí estar ordenados.
+    Por ejemplo:
+    4, 5, 7, 12, 13, 0 Se emite un cartel que diga “Ordenados” (5,7 y 13)
+    2, 10, 3, 5, 11, 7, 14, 0 Se emite un cartel que diga “Desordenados” (2, 3, 5, 11 y 7)*/
+
+    int numero;
+    bool esCero = false;
+    bool esOrdenado = true;
+    int j = 0;
+    int primoAnterior;
+    int cantidadPrimos = 0;
+
+    while(!esCero){
+
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero != 0){
+            j++;
+            int divisor = 2;
+            int divisores = 1;
+            while(divisor <= numero){
+                if(numero % divisor == 0){
+                    divisores++;
+                }
+            divisor++;
+            }
+            if(divisores == 2 && cantidadPrimos == 0){
+                    primoAnterior = numero;
+                    cantidadPrimos++;
+            }else if(divisores == 2 && cantidadPrimos != 0){
+                cantidadPrimos++;
+                if(primoAnterior < numero){
+                    esOrdenado = false;
+                }
+                primoAnterior = numero;
+            }
+        } else {
+            esCero = true;
+        }
+    }
+
+    if(esOrdenado){
+        cout << "Grupo ordenado." << endl;
+    } else {
+        cout << "Grupo desordenado." << endl;
+    }
+
+
+    /* 5 - Se dispone de una lista de 10 grupos de números enteros separados entre ellos por
+    ceros. Se pide determinar e informar:
+    a) Calcular el promedio de valores de cada grupo.
+    b) Determinar e informar el valor mínimo de todo los grupos, indicando en que grupo se
+    encontró y su posición relativa en el mismo.
+    c) El mayor de los promedios y a que grupo pertenecía */
+
+
+    float promedioMayor;
+    int grupoPromedioMayor;
+    int valorMinimo;
+    int grupoValorMinimo;
+    int posicionValorMinimo;
+
+    for(int i = 1; i <= 10; i++){
+
+        bool esCero = false;
+        int j = 0;
+        int cantidadNumerosGrupo = 0;
+        int valorTotalGrupo = 0;
+        int numero;
+
+        while(!esCero){
+
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            if(numero != 0){
+                j++;
+                valorTotalGrupo += numero;
+                cantidadNumerosGrupo++;
+                if(j == 1 && i == 1){
+                    valorMinimo = numero;
+                    grupoValorMinimo = i;
+                    posicionValorMinimo = j;
+                }
+                if(valorMinimo > numero){
+                    valorMinimo = numero;
+                    grupoValorMinimo = i;
+                    posicionValorMinimo = j;
+                }
+            } else {
+                esCero = true;
+            }
+        }
+
+        if(i == 1){
+            promedioMayor = valorTotalGrupo/(float)cantidadNumerosGrupo;
+            grupoPromedioMayor = i;
+        } else {
+            if(promedioMayor < valorTotalGrupo/(float)cantidadNumerosGrupo){
+                promedioMayor = valorTotalGrupo/(float)cantidadNumerosGrupo;
+                grupoPromedioMayor = i;
+            }
+        }
+
+    }
+
+    cout << endl <<"Valor minimo: " << valorMinimo << " . En grupo: " << grupoValorMinimo << ". Posicion: "<< posicionValorMinimo << endl;
+    cout << "Promedio mayor: " << promedioMayor << ". En grupo: " << grupoPromedioMayor << endl;
+
+
+    /* 6 - Hacer un programa para ingresar por teclado 10 grupos compuestos por números
+    ordenados de menor a mayor. El final de cada grupo se detecta al ingresar un número
+    menor a su anterior.
+    Se debe obtener y emitir:
+    a) Para cada uno de los grupos la cantidad de números primos que lo componen.
+    b) El mínimo número par de cada uno de los grupos.
+    c) El anteúltimo y último número positivo de cada uno de los grupos */
+
+    for(int i = 1; i <= 3; i++){
+
+        bool anteriorMenor = false;
+        bool hayPar = false;
+        bool hayPositivo = false;
+        int numero;
+        int anterior;
+        int j = 0;
+        int cantidadPrimosGrupo = 0;
+        int minimoPar;
+        int anteultimoPositivo;
+        int ultimoPositivo;
+
+        while(!anteriorMenor){
+            j++;
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            if(j == 1){
+                anterior = numero;
+            } else {
+                if(anterior > numero){
+                    anteriorMenor = true;
+                }
+            }
+
+            int divisor = 2;
+            int divisores = 1;
+            while(divisor <= numero){
+                if(numero % divisor == 0){
+                    divisores++;
+                }
+            divisor++;
+            }
+            if(divisores == 2){
+                cantidadPrimosGrupo++;
+            }
+
+            if(numero % 2 == 0 && !hayPar){
+                minimoPar = numero;
+                hayPar = true;
+            } else {
+                if(numero % 2 == 0 && hayPar){
+                    if(minimoPar > numero){
+                        minimoPar = numero;
+                    }
+                }
+            }
+
+            if(numero > 0 && !hayPositivo){
+                anteultimoPositivo = numero;
+                ultimoPositivo = numero;
+                hayPositivo = true;
+            } else {
+                if(numero > 0 && hayPositivo){
+                    anteultimoPositivo = ultimoPositivo;
+                    ultimoPositivo = numero;
+                }
+            }
+            anterior = numero;
+        }
+
+        cout << endl << "Cantidad primos en grupo " << i << ": " << cantidadPrimosGrupo << endl;
+        if(hayPar){
+            cout << "Minimo numero par grupo " << i << ": "  << minimoPar << endl;
+        } else {
+            cout << "No se ingresaron pares en grupo " << i << endl;
+        }
+        cout << "Anteultimo numero positivo grupo " << i << ": " << anteultimoPositivo << endl;
+        cout << "Ultimo numero positivo grupo " << i << ": " << ultimoPositivo << endl << endl;
+    }
