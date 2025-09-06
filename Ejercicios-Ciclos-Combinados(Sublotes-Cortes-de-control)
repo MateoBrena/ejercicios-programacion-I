@@ -359,3 +359,78 @@
         cout << "Anteultimo numero positivo grupo " << i << ": " << anteultimoPositivo << endl;
         cout << "Ultimo numero positivo grupo " << i << ": " << ultimoPositivo << endl << endl;
     }
+
+    /* 7 - Hacer un programa para ingresar los valores de los pesos de distintas encomiendas que
+    se deben enviar a distintos clientes y que finaliza cuando se ingresa un peso negativo. Se
+    deben agrupar las encomiendas en camiones que pueden transportar hasta 200 kilos en
+    total. Se pide determinar e informar:
+    a) El número de cada camión y peso total de encomiendas. Camión 1: 170 kg, Camión 2:
+    170 kg, etc.
+    b) El número de camión que transporta mayor cantidad de encomiendas. En el ejemplo
+    anterior sería el Camión 3 con 4 encomiendas.*/
+
+    bool pesoNegativo = false;
+    bool sobrante = false;
+    int camiones = 0;
+    int camionConMasEncomiendas;
+    int numeroMayorEncomiendas;
+
+    while(!pesoNegativo){
+
+        bool pesoMaximo = false;
+        int pesoEncomienda;
+        int pesoCamion = 0;
+        int encomiendas = 0;
+        int pesoSobrante;
+        camiones++;
+
+        if(sobrante){
+            pesoCamion = pesoSobrante;
+            encomiendas = 1;
+        }
+
+        while(!pesoMaximo){
+            cout << "Ingrese el peso de la encomienda: ";
+            cin >> pesoEncomienda;
+
+            if (pesoEncomienda < 0) {
+                pesoNegativo = true;
+                break;
+            }
+            if (pesoEncomienda + pesoCamion <= 200) {
+                encomiendas++;
+                pesoCamion += pesoEncomienda;
+                sobrante = false;
+                if(pesoCamion == 200){
+                    break;
+                }
+            } else {
+                pesoSobrante = pesoEncomienda;
+                sobrante = true;
+                break;
+            }
+
+        }
+
+        if(camiones == 1){
+            camionConMasEncomiendas = camiones;
+            numeroMayorEncomiendas = encomiendas;
+        } else {
+            if(numeroMayorEncomiendas < encomiendas){
+                numeroMayorEncomiendas = encomiendas;
+                camionConMasEncomiendas = camiones;
+            }
+        }
+
+        if(encomiendas == 0){
+            break;
+        }
+
+        cout << endl << "Numero camion: " << camiones << endl;
+        cout << "Encomiendas: " << encomiendas << endl;
+        cout << "Peso: " << pesoCamion << endl << endl;
+
+    }
+
+    cout << endl << "Camion con mas encomiendas: " << camionConMasEncomiendas << endl;
+    cout << "Numero mayor de encomiendas: " << numeroMayorEncomiendas << endl;
