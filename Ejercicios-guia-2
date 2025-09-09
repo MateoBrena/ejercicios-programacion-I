@@ -1,0 +1,872 @@
+/*1 Hacer un programa para ingresar por teclado un número y luego emitir por
+    pantalla un cartel aclaratorio indicando si el mismo es positivo, negativo o cero. 
+    Importante: Verifique que el programa emita UN SOLO CARTEL */
+
+    int numero;
+    cout << "Ingresar numero: ";
+    cin >> numero;
+
+    if (numero == 0){
+        cout << "El numero es cero";
+    } else {
+        if (numero > 0){
+            cout << "El numero es positivo";
+        } else {
+            cout << "El numero es negativo";
+        }
+    }
+
+    /*2 Hacer un programa para ingresar por teclado dos números y luego informar por
+    pantalla con un cartel aclaratorio si el primer número es múltiplo del segundo*/
+
+    int numero1, numero2;
+
+    cout << "Ingresar el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingresar el segundo numero: ";
+    cin >> numero2; 
+
+    if (numero1 % numero2 == 0){
+        cout << "El primer numero es multiplo del segundo";
+    } else {
+        cout << "El primer numero NO es multiplo del segundo"; 
+    }
+
+    /*3  Hacer un programa para ingresar por teclado un número y luego informar por
+    pantalla con un cartel aclaratorio si el mismo es par o impar */
+
+    int numero;
+
+    cout << "Ingresar un numero: ";
+    cin >> numero;
+
+    if (numero % 2 == 0){
+        cout << "El numero es par";
+    } else {
+        cout << "El numero es impar";
+    }
+    return 0;
+
+    /* 4 Hacer un programa para ingresar por teclado dos números y luego informar por
+    pantalla la diferencia entre ambos.
+    Ejemplo A: Si se ingresan 3 y 8 se emite 5. Si se ingresan 8 y 3 se emite 5.
+    Ejemplo B: Si se ingresan -3 y 9 se emite 12. Si se ingresan -12 y -1 se emite 11.
+    Ejemplo C: Si se ingresan -3 y -9 se emite 6. Si se ingresan -12 y -9 se emite 3.
+    Importante: Verifique que el programa emite SIEMPRE UN VALOR POSITIVO 
+    porque la diferencia absoluta siempre es un valor positivo */
+
+    int numero1, numero2, diferencia;
+
+    cout << "Ingresar el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingresar el segundo numero: ";
+    cin >> numero2;
+
+    if (numero1 > numero2){
+            diferencia = numero1 - numero2;
+        cout << "La diferencia es: " << diferencia;
+    } else {
+        diferencia = numero2 - numero1;
+        cout << "La diferencia es: " << diferencia;
+    }
+    return 0;
+
+    /* 5 - Un negocio de perfumería efectúa descuentos según el importe de la venta.
+    Si el importe es menor a $100 aplicar un descuento del 5%
+    Si el importe es entre $100 y hasta $500 aplicar un descuento del 10%
+    Si el importe es mayor a $500 aplicar un descuento del 15%
+    Hacer un programa donde se ingresa el importe original sin descuento y se
+    informe por pantalla el importe con el descuento ya aplicado. 
+    Importante: Verifique que el programa emita UN SOLO CARTEL */
+
+    int importe;
+    float aCobrar;
+
+    cout << "Ingrese el importe de compra: ";
+    cin >> importe;
+
+    if (importe < 100){
+        aCobrar = importe * 0.95;
+        cout << "El importe a cobrar es: " << aCobrar;
+    } else {
+        if(importe >= 100 && importe <= 500){
+            aCobrar = importe * 0.90;
+            cout << "El importe a cobrar es: " << aCobrar;
+        } else {
+            aCobrar = importe * 0.85;
+            cout << "El importe a cobrar es: " << aCobrar;
+        }
+    }
+    return 0;
+
+    /* 6 - Hacer un programa para ingresar por teclado tres números y luego determinar e
+    informar con una leyenda aclaratoria si los tres son iguales entre sí, caso
+    contrario no emitir nada.
+    Tener en cuenta: Si A es igual a B y B es igual a C, entonces A y C son iguales */
+
+    int numero1, numero2, numero3;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+
+    if( numero1 == numero2 && numero2 == numero3){
+        cout << "Todos los numeros son iguales";
+    }
+    return 0;
+
+    /* 7 - Hacer un programa para ingresar por teclado tres números e informar con una
+    leyenda aclaratoria si los tres son todos distintos entre sí, caso contrario no
+    emitir nada.
+    Tener en cuenta: Si A es distinto de B y B es distinto de C, eso no significa que A
+    y C sean distintos. Ejemplo: A=8, B=6 y C=8 */
+    int numero1, numero2, numero3;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+
+    if((numero1 != numero2 && numero2 != numero3) && (numero1 != numero3)){
+        cout << "Todos los numeros son distintos";
+    }
+     return 0; 
+
+    /* 8 - Basado en los 2 ejercicios anteriores, hacer un programa para ingresar por
+    teclado la longitud de los tres lados de un triángulo y luego listar qué tipo de
+    triángulo es:
+    - Equilátero: si los tres lados son iguales.
+    - Isósceles: si dos de los tres lados son iguales.
+    - Escaleno: si los tres lados son distintos entre sí */
+
+    int lado1, lado2, lado3;
+
+    cout << "Ingrese la longitud del primer lado: ";
+    cin >> lado1;
+
+    cout << "Ingrese la longitud del segundo lado: ";
+    cin >> lado2;
+
+    cout << "Ingrese la longitud del tercer lado: ";
+    cin >> lado3; 
+
+    if((lado1 != lado2 && lado2 != lado3) && (lado1 != lado3)){
+        cout << "El triangulo es Escaleno";
+        } else {
+                if( lado1 == lado2 && lado2 == lado3){
+                    cout << "El triangulo es Equilatero";
+            } else {
+                cout << "El triangulo es Isosceles";
+            }
+        }
+    return 0; 
+
+  /* 9 - Hacer un programa para ingresar tres números y listar el máximo de ellos */
+   
+    int numero1, numero2, numero3;
+  
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+  
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+  
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+  
+    if (numero1 != numero2 && numero2 != numero3){
+        if(numero1 > numero2 && numero1 > numero3){
+                cout << "El numero mas grande es: " << numero1; 
+            } else {
+                if(numero2 > numero1 && numero2 > numero3){
+                    cout << "El numero mas grande es: " << numero2; 
+                } else {
+                    cout << "El numero mas grande es: " << numero3; 
+                }
+            }
+    } else {
+        cout << "Todos los numeros son iguales";
+    }
+    return 0;
+
+    /* 10 - Hacer un programa para ingresar cinco números y listar el máximo y el mínimo
+    de ellos*/
+
+    int maximo, minimo, numero2, numero3, numero4, numero5;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> maximo;
+
+    minimo = maximo;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+
+    cout << "Ingrese el cuarto numero: ";
+    cin >> numero4;
+
+    cout << "Ingrese el quinto numero: ";
+    cin >> numero5;
+
+    if (numero2 > maximo) {
+        maximo = numero2;
+    }
+    if (numero3 > maximo) {
+        maximo = numero3;
+    }
+    if (numero4 > maximo) {
+        maximo = numero4;
+    }
+    if (numero5 > maximo) {
+        maximo = numero5;
+    }
+    if (numero2 < minimo) {
+        minimo = numero2;
+    }
+    if (numero3 < minimo) {
+        minimo = numero3;
+    }
+    if (numero4 < minimo) {
+        minimo = numero4;
+    }
+    if (numero5 < minimo) {
+        minimo = numero5;
+    }
+    cout << "El numero maximo es: " << maximo << endl;
+    cout << "El numero minimo es: " << minimo;
+
+/* 11 Hacer un programa para ingresar cinco números y listar cuantos de 
+  esos cinco números son positivos, cuantos son negativos y cuantos son iguales a 0 */
+
+    int numero1, numero2, numero3, numero4, numero5, positivos, negativos, ceros;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+
+    cout << "Ingrese el cuarto numero: ";
+    cin >> numero4;
+
+    cout << "Ingrese el quinto numero: ";
+    cin >> numero5;
+
+    positivos = 0;
+    negativos = 0;
+    ceros = 0;
+
+    if(numero1 > 0){
+        positivos++;
+    } else if(numero1 == 0){
+        ceros++;
+    }else {
+        negativos++;
+    }
+
+    if(numero2 > 0){
+        positivos++;
+    } else if(numero2 == 0){
+        ceros++;
+    }else {
+        negativos++;
+    }
+
+    if(numero3 > 0){
+        positivos++;
+    } else if(numero3 == 0){
+        ceros++;
+    }else {
+        negativos++;
+    }
+
+    if(numero4 > 0){
+        positivos++;
+    } else if(numero4 == 0){
+        ceros++;
+    }else {
+        negativos++;
+    }
+    if(numero5 > 0){
+        positivos++;
+    } else if(numero5 == 0){
+        ceros++;
+    }else {
+        negativos++;
+    }
+    cout << "Numeros positivos: " << positivos << endl;
+    cout << "Ceros: " << ceros << endl;
+    cout << "Numeros negativos: " << negativos;
+
+/* 12 - Hacer un programa para ingresar tres números diferentes y determinar e informar el número del medio.
+    Sugerimos probar CADA UNA de las siguientes 6 combinaciones.
+    N1=8, N2=6, N3=10. Valor del medio: 8. N1=8, N2=10, N3=6. Valor del medio: 8
+    N1=6, N2=8, N3=10. Valor del medio: 8. N1=10, N2=8, N3=6. Valor del medio: 8
+    N1=6, N2=10, N3=8. Valor del medio: 8. N1=10, N2=6, N3=8. Valor del medio: 8*/
+
+    int numero1, numero2, numero3;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3; 
+
+    if((numero1 < numero2 && numero2 < numero3) || (numero3 < numero2 && numero2 < numero1)){
+        cout << "El numero del medio es: " << numero2;
+    } else if((numero2 < numero1 && numero1 < numero3) || (numero3 < numero1 && numero1 < numero2)){
+        cout << "El numero del medio es: " << numero1;
+    } else {
+        cout << "El numero del medio es: " << numero3;
+    }
+
+    /* 13 - Hacer un programa para ingresar tres números distintos y listarlos ordenados
+    de menor a mayor.
+    Sugerimos probar CADA UNA de las siguientes 6 combinaciones.
+    Si N1=8, N2=6, N3=10 ó N1=8, N2=10, N3=6. Se muestra: 6, 8, 10. 
+    Si N1=6, N2=8, N3=10 ó N1=10, N2=8, N3=6. Se muestra: 6, 8, 10. 
+    Si N1=6, N2=10, N3=8 ó N1=10, N2=6, N3=8. Se muestra: 6, 8, 10 */
+
+    int numero1, numero2, numero3;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+
+    if(numero1 > numero2 && numero2 > numero3){
+        cout << "El orden es: " << numero1 << ", " << numero2 << ", " << numero3;
+        } else {
+            if(numero2 > numero1 && numero1 > numero3){
+                cout << "El orden es: " << numero2 << ", " << numero1 << ", " << numero3;
+               } else {
+                    if(numero3 > numero1 && numero1 > numero2){
+                        cout << "El orden es: " << numero3 << ", " << numero1 << ", " << numero2;
+                    } else {
+                        if(numero3 > numero1 && numero3 > numero2){
+                         cout << "El orden es: " << numero3 << ", " << numero2 << ", " << numero1;
+                        } else {
+                            if(numero1 > numero3 && numero3 > numero2){
+                                cout << "El orden es: " << numero1 << ", " << numero3 << ", " << numero2;
+                            } else {
+                                cout << "El orden es: " << numero2 << ", " << numero3 << ", " << numero1;
+                            }
+                        }
+                    }
+                }
+            }
+   return 0;
+
+/* 14 - Hacer un programa para ingresar por teclado la fecha de nacimiento de una
+    persona, ingresando día, mes y año como 3 datos individuales. Luego ingresar
+    la fecha actual ingresando día, mes y año como 3 datos individuales. Calcular
+    luego la edad en años de esa persona y listar por pantalla.
+    Ejemplo 1. Si se ingresa como fecha de nacimiento: 3/12/2000 y la fecha actual
+    es 26/2/2019 la edad de esa persona es 18 ya que los 19 recién los cumple en
+    diciembre.
+    Ejemplo 2. Si se ingresa como fecha de nacimiento: 3/1/2000 y la fecha actual
+    es 26/2/2019 la edad de esa persona es 19.
+    Ejemplo 3. Si se ingresa como fecha de nacimiento: 28/2/2000 y la fecha actual
+    es 26/2/2019 la edad de esa persona es 18 ya que le faltan 2 días para cumplir
+    los 19 años */
+
+    int diaNacimiento, mesNacimiento, anioNacimiento, diaActual, mesActual, anioActual, edad;
+
+    cout << "Ingrese el dia de nacimiento: ";
+    cin >> diaNacimiento;
+
+    cout << "Ingrese el mes de nacimiento: ";
+    cin >> mesNacimiento;
+
+    cout << "Ingrese el anio de nacimiento: ";
+    cin >> anioNacimiento;
+
+    cout << "Ingrese el dia actual: ";
+    cin >> diaActual;
+
+    cout << "Ingrese el mes actual: ";
+    cin >> mesActual;
+
+    cout << "Ingrese el anio actual: ";
+    cin >> anioActual;
+
+    if(mesNacimiento > mesActual){
+        edad = anioActual - anioNacimiento -1;
+        cout << "La edad actual es de " << edad << " anios.";
+    }else if(mesNacimiento == mesActual && diaNacimiento > diaActual){
+        edad = anioActual - anioNacimiento -1;
+        cout << "La edad actual es de " << edad << " anios.";
+    } else {
+        edad = anioActual - anioNacimiento;
+        cout << "La edad actual es de " << edad << " anios.";
+    }
+
+    /* 15 - Un año es bisiesto si es múltiplo de 4, exceptuando a los años que son
+    múltiplos de 100 pero que no sean múltiplos de 400. Esto último significa que el
+    año 1900 no es bisiesto, pero el año 2000 sí lo es. Hacer un programa para
+    ingresar un año y listar por pantalla si es bisiesto o no lo es.
+    Ejemplo A. Si se ingresa el año 2020 se indicará como bisiesto.
+    Ejemplo B. Si se ingresa el año 2019 se indicará como no bisiesto.
+    Ejemplo C. Si se ingresa el año 1800 o 1900 se indicará como no bisiesto.
+    Ejemplo D. Si se ingresa el año 1600 o 2000 se indicará como bisiesto */
+
+    int anio;
+
+    cout << "Ingrese el anio: ";
+    cin >> anio;
+
+    if(anio % 400 == 0){
+        cout << "El anio " << anio << " es bisiesto.";
+    } else if(anio % 4 == 0 && anio % 100 != 0){
+        cout << "El anio " << anio << " es bisiesto.";
+    } else {
+        cout << "El anio " << anio << " NO es bisiesto.";
+    }
+   return 0;
+
+    /* 16 - Hacer un programa para ingresar por teclado las cuatro notas de los exámenes
+    obtenidas por un alumno y luego emitir uno solo de los carteles de acuerdo a las
+    siguientes condiciones:
+    - “Promociona”, si obtuvo en los cuatro exámenes nota 7 o más.
+    - “Rinde examen final”, si obtuvo nota 4 o más en por lo menos tres exámenes.
+    - “Recupera Parciales”, si obtuvo nota 4 o más en por lo menos uno de los
+    exámenes.
+    - “Recursa la materia”, si no aprobó ningún examen parcial */
+
+    int nota1, nota2, nota3, nota4;
+
+    cout << "Ingrese la nota del primer examen: ";
+    cin >> nota1;
+
+    cout << "Ingrese la nota del segundo examen: ";
+    cin >> nota2;
+
+    cout << "Ingrese la nota del tercer examen: ";
+    cin >> nota3;
+
+    cout << "Ingrese la nota del cuarto examen: ";
+    cin >> nota4;
+
+    if((nota1 >= 7 && nota2 >= 7) && (nota3 >= 7 && nota4 >= 7)){
+        cout << "Promociona"; 
+    } else if ((nota1 >= 4 && nota2 >= 4 && nota3 >= 4) ||
+             (nota1 >= 4 && nota2 >= 4 && nota4 >= 4) ||
+             (nota1 >= 4 && nota3 >= 4 && nota4 >= 4) ||
+             (nota2 >= 4 && nota3 >= 4 && nota4 >= 4)){
+        cout << "Rinde examen final";
+    } else if((nota1 >= 4 || nota2 >= 4) || (nota3 >= 4 || nota4 >=4)){
+        cout << "Recupera Parciales";
+    } else {
+        cout << "Recursa la materia";
+    }
+    return 0;
+
+    /* 17 - Hacer un programa para ingresar por teclado cuatro números. Si los valores que
+    se ingresaran están ordenados en forma creciente, emitir el mensaje “Conjunto
+    Ordenado”, caso contrario emitir el mensaje: “Conjunto Desordenado”.
+    Ejemplo A: si los números que se ingresan son 8, 10, 12 y 14, entonces están
+    ordenados.
+    Ejemplo B: si los números que se ingresan son 8, 12, 12 y 14, entonces están
+    ordenados.
+    Ejemplo C: si los números que se ingresan son 10, 8, 12 y 14, entonces están
+    desordenados */
+
+    int numero1, numero2, numero3, numero4;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> numero2;
+
+    cout << "Ingrese el tercer numero: ";
+    cin >> numero3;
+
+    cout << "Ingrese el cuarto numero: ";
+    cin >> numero4;
+
+    if(numero1 <= numero2 && numero2 <= numero3 && numero3 <= numero4){
+        cout << "Conjunto Ordenado";
+    } else {
+        cout << "Conjunto Desordenado";
+    }
+
+    /* 18 - Una empresa de electricidad cobra el servicio a sus clientes de acuerdo a la
+    siguiente escala:
+    $10 por kilovatio (kW) por el consumo hasta los primeros 100 kW de consumo.
+    $12 por kW por el consumo excedente de 101 a 200 kW.
+    $15 por kW por el consumo excedente de 201 kW en adelante.
+    Hacer un programa para que, dado el consumo en kilovatios de un determinado
+    cliente, el programa calcule e informe el total a pagar.
+    Ejemplo 1: Un consumo de 55 kW, se calculará: $ 10 x 55= $ 550
+    Ejemplo 2: Un consumo de 125 kW, se calculará: $10 x 100 + $12 x 25 = $1300 */
+
+    int consumo, valorkW;
+
+    cout << "Ingrese el consumo en kW: ";
+    cin >> consumo;
+
+    if(consumo <= 100){
+        valorkW = 10;
+        cout << "El total a pagar es de $" << consumo * valorkW;
+    } else if(consumo > 100 && consumo <= 200){
+        valorkW = 12;
+        cout << "El total a pagar es de $" << (consumo - 100) * valorkW + 1000;
+    } else {
+        valorkW = 15;
+        cout << "El total a pagar es de $" << (consumo - 200) * valorkW + 2200;
+    }
+
+    /* 19 - El costo de un desarrollo de un proyecto de software se calcula en base al
+    lenguaje que se necesita: - Tipo C (C/C++), valor por hora de $7500
+    - Tipo # (C#), valor por hora de $6100
+    - Tipo P (Python), valor por hora de $5400
+    - Tipo G (Go), valor por hora de $5000
+    Además, si el proyecto es marcado como Urgente, se le aumenta un 120 % más
+    al costo del proyecto.
+    Le solicitan un programa que permita calcular el costo total de un proyecto
+    basado en la cantidad de horas (int), el tipo de lenguaje (char) y si es urgente o
+    no (bool)*/
+
+    int horas, valorTotalHoras, total;
+    char tipo;
+    bool urgente;
+
+    cout << "Ingrese la cantidad de horas: ";
+    cin >> horas;
+
+    cout << "Ingrese el tipo de lenguaje: ";
+    cin >> tipo;
+
+    cout << "El proyecto es urgente? (1 = si, 0 = no) ";
+    cin >> urgente;
+
+    switch(tipo){
+    case 'C':
+        valorTotalHoras = horas * 7500;
+        break;
+    case '#':
+        valorTotalHoras = horas * 6100;
+        break;
+    case 'P':
+        valorTotalHoras = horas * 5400;
+        break;
+    default:
+        valorTotalHoras = horas * 5000;
+        break;
+    }
+
+    if(urgente){
+        total = valorTotalHoras + (valorTotalHoras * 2.20);
+        cout << "El valor del proyecto es: $" << total;
+    } else {
+        cout << "El valor del proyecto es: $" << valorTotalHoras;
+    }
+
+    /* 20 - Hacer un programa en el que se ingrese la edad y altura de 5 personas. Luego,
+    calcular e informar:
+    - La cantidad de personas mayores a 30 años que midan más de 1.8
+    metros.
+    - El promedio de altura de las personas mayores a 30 años. 
+    - La cantidad de personas con altura entre 1.7 y 1.8 (ambos inclusive) 
+    - La cantidad de personas cuya edad sea de 20, 30 o 40 años */ 
+
+    int edadPersona1, edadPersona2, edadPersona3, edadPersona4, edadPersona5;
+    float alturaPersona1, alturaPersona2, alturaPersona3, alturaPersona4, alturaPersona5;
+
+    int mayores30, personasAltasMayores30, personasEntre170y180, edad203040; 
+    float alturaMayores30, promedioAlturaMayores30; 
+
+    cout << "Ingrese la edad de la primer persona: ";
+    cin >> edadPersona1;
+    cout << "Ingrese la altura de la primer persona (en metros. Ej: 1.78): ";
+    cin >> alturaPersona1; 
+
+    cout << "Ingrese la edad de la segunda persona: ";
+    cin >> edadPersona2;
+    cout << "Ingrese la altura de la segunda persona (en metros. Ej: 1.78): ";
+    cin >> alturaPersona2; 
+
+    cout << "Ingrese la edad de la tercera persona: "; 
+    cin >> edadPersona3; 
+    cout << "Ingrese la altura de la tercera persona (en metros. Ej: 1.78): "; 
+    cin >> alturaPersona3; 
+
+    cout << "Ingrese la edad de la cuarta persona: ";
+    cin >> edadPersona4;
+    cout << "Ingrese la altura de la cuarta persona (en metros. Ej: 1.78): ";
+    cin >> alturaPersona4; 
+
+    cout << "Ingrese la edad de la quinta persona: ";
+    cin >> edadPersona5;
+    cout << "Ingrese la altura de la quinta persona (en metros. Ej: 1.78): ";
+    cin >> alturaPersona5;
+
+    mayores30 = 0;
+    alturaMayores30 = 0;
+    personasAltasMayores30 = 0;
+    promedioAlturaMayores30 = 0;
+    personasEntre170y180 = 0;
+    edad203040 = 0;
+
+    if(edadPersona1 > 30){
+        mayores30++;
+        alturaMayores30 = alturaMayores30 + alturaPersona1;
+    }
+    if(edadPersona1 > 30 && alturaPersona1 > 1.80){
+        personasAltasMayores30++;
+    }
+    if(alturaPersona1 >= 1.70 && alturaPersona1 <= 1.80){
+        personasEntre170y180++;
+    }
+    if(edadPersona1 == 20 || edadPersona1 == 30 || edadPersona1 == 40){
+        edad203040++;
+    }
+    if (edadPersona2 > 30) {
+        mayores30++;
+        alturaMayores30 = alturaMayores30 + alturaPersona2;
+    }
+    if (edadPersona2 > 30 && alturaPersona2 > 1.80) {
+        personasAltasMayores30++;
+    }
+    if (alturaPersona2 >= 1.70 && alturaPersona2 <= 1.80) {
+        personasEntre170y180++;
+    }
+    if (edadPersona2 == 20 || edadPersona2 == 30 || edadPersona2 == 40) {
+        edad203040++;
+    }
+    if (edadPersona3 > 30) {
+        mayores30++;
+        alturaMayores30 = alturaMayores30 + alturaPersona3;
+    }
+    if (edadPersona3 > 30 && alturaPersona3 > 1.80) {
+        personasAltasMayores30++;
+    }
+    if (alturaPersona3 >= 1.70 && alturaPersona3 <= 1.80) {
+        personasEntre170y180++;
+    }
+    if (edadPersona3 == 20 || edadPersona3 == 30 || edadPersona3 == 40) {
+        edad203040++;
+    }
+    if (edadPersona4 > 30) {
+        mayores30++;
+        alturaMayores30 = alturaMayores30 + alturaPersona4;
+    }
+    if (edadPersona4 > 30 && alturaPersona4 > 1.80) {
+        personasAltasMayores30++;
+    }
+    if (alturaPersona4 >= 1.70 && alturaPersona4 <= 1.80) {
+        personasEntre170y180++;
+    } 
+
+    if (edadPersona4 == 20 || edadPersona4 == 30 || edadPersona4 == 40) {
+        edad203040++;
+    }
+
+    if (edadPersona5 > 30) {
+        mayores30++;
+        alturaMayores30 = alturaMayores30 + alturaPersona5;
+    }
+    if (edadPersona5 > 30 && alturaPersona5 > 1.80) {
+        personasAltasMayores30++;
+    }
+    if (alturaPersona5 >= 1.70 && alturaPersona5 <= 1.80) {
+        personasEntre170y180++;
+    }
+    if (edadPersona5 == 20 || edadPersona5 == 30 || edadPersona5 == 40) {
+        edad203040++;
+    }
+    if (mayores30 > 0) {
+        promedioAlturaMayores30 = alturaMayores30 / mayores30;
+    }
+
+    cout << "Cantidad de personas mayores de 30 y mas altas que 1.80: " << personasAltasMayores30 << endl;
+    cout << "Promedio de altura de las personas mayores de 30: " << promedioAlturaMayores30 << endl;
+    cout << "Cantidad de personas entre 1.70 y 1.80 metros: " << personasEntre170y180 << endl;
+    cout << "Personas con 20, 30 o 40 anios: " << edad203040;
+
+    /* 21 -  Una marroquinería dispone de 45 carteras blancas, 50 carteras negras, 40
+    marrones y 49 grises. Se pide hacer un programa donde se ingresen tres
+    ventas. Cada venta está compuesta por:
+    - Cantidad de carteras
+    - Tipo de cartera (1 - Blanco, 2 - Negro, 3- Marrón, 4 - Gris)
+    Calcular e informar:
+    - Cantidad total de carteras vendidas en total.
+    - Cuántas carteras quedaron de cada tipo.
+    - Los colores de carteras que no se vendieron.
+    NOTA: Ninguna venta superará las 10 carteras */
+
+    int cantidadVenta1, cantidadVenta2, cantidadVenta3, colorVenta1, colorVenta2, colorVenta3;
+    int carterasBlancas, carterasNegras, carterasMarrones, carterasGrises;
+    int vendidasBlancas, vendidasNegras, vendidasMarrones, vendidasGrises;
+
+    cout << "Ingrese la cantidad de carteras de la primer venta: ";
+    cin >> cantidadVenta1;
+    cout << "Ingrese el color de las carteras de la primer venta (1-Blanco, 2-Negro, 3-Marrón, 4-Gris): ";
+    cin >> colorVenta1;
+    cout << "Ingrese la cantidad de carteras de la segunda venta: ";
+    cin >> cantidadVenta2;
+    cout << "Ingrese el color de las carteras de la segunda venta (1-Blanco, 2-Negro, 3-Marrón, 4-Gris): ";
+    cin >> colorVenta2;
+    cout << "Ingrese la cantidad de carteras de la tercera venta: ";
+    cin >> cantidadVenta3;
+    cout << "Ingrese el color de las carteras de la tercera venta (1-Blanco, 2-Negro, 3-Marrón, 4-Gris): ";
+    cin >> colorVenta3;
+
+    carterasBlancas = 45;
+    carterasNegras = 50;
+    carterasMarrones = 40;
+    carterasGrises = 49;
+    vendidasBlancas = 0;
+    vendidasNegras = 0;
+    vendidasMarrones = 0;
+    vendidasGrises = 0;
+
+    switch(colorVenta1){
+        case 1:
+            vendidasBlancas = vendidasBlancas + cantidadVenta1;
+            break;
+        case 2:
+            vendidasNegras = vendidasNegras + cantidadVenta1;
+            break;
+        case 3:
+            vendidasMarrones = vendidasMarrones + cantidadVenta1;
+            break;
+        case 4:
+            vendidasGrises = vendidasGrises + cantidadVenta1;
+            break;
+    }
+
+    switch(colorVenta2){
+        case 1:
+            vendidasBlancas = vendidasBlancas + cantidadVenta2;
+            break;
+        case 2:
+            vendidasNegras = vendidasNegras + cantidadVenta2;
+            break;
+        case 3:
+            vendidasMarrones = vendidasMarrones + cantidadVenta2;
+            break;
+        case 4:
+            vendidasGrises = vendidasGrises + cantidadVenta2;
+            break;
+    }
+    switch(colorVenta3){
+        case 1:
+            vendidasBlancas = vendidasBlancas + cantidadVenta3;
+            break;
+        case 2:
+            vendidasNegras = vendidasNegras + cantidadVenta3;
+            break;
+        case 3:
+            vendidasMarrones = vendidasMarrones + cantidadVenta3;
+            break; 
+        case 4: 
+            vendidasGrises = vendidasGrises + cantidadVenta3;
+            break; 
+    }
+
+    cout << "Carteras vendidas: " << cantidadVenta1 + cantidadVenta2 + cantidadVenta3 << endl;
+    cout << "Stock de carteras Blancas: " << carterasBlancas - vendidasBlancas << endl;
+    cout << "Stock de carteras Negras: " << carterasNegras - vendidasNegras << endl;
+    cout << "Stock de carteras Marrones: " << carterasMarrones - vendidasMarrones << endl;
+    cout << "Stock de carteras Grises: " << carterasGrises - vendidasGrises << endl;
+
+ /* 22 -  Una fábrica de caramelos dispone de un presupuesto inicial para inaugurar su sucursal en Villa Brian Lara. Se sabe que para producir caramelos tienen los siguientes costos:
+    - Costo de alquiler de $10000
+    - Costo por caramelo producido de $2.50
+    - Costo por mantenimiento cada 100 caramelos de $5000
+    Dados el presupuesto inicial y la cantidad de caramelos a producir el primer
+    mes, informar:
+    - "El presupuesto es suficiente para cubrir los costos de $XXXX"
+    - "El presupuesto no es suficiente, necesita un crédito de $XXXX" */
+  
+    int cantidadCaramelos, costoMantenimiento;
+    float presupuesto, costoFinal; 
+
+    cout << "Ingrese el presupuesto: ";
+    cin >> presupuesto;
+    cout << "Ingrese la cantidad de caramelos a producir: ";
+    cin >> cantidadCaramelos;
+
+    costoFinal = 10000 + (cantidadCaramelos * 2.5);
+    costoMantenimiento = (cantidadCaramelos / 100) * 5000;
+    costoFinal = costoFinal + costoMantenimiento;
+
+    if(costoFinal <= presupuesto){
+        cout << "El presupuesto es suficiente para cubrir los costos de $" << costoFinal;
+    } else {
+        cout << "El presupuesto no es suficiente, necesita un credito de $" << costoFinal - presupuesto; 
+    } 
+ return 0;
+
+    /* 23 - Hacer un programa para ingresar un número de mes y listar por pantalla a qué
+    bimestre corresponde ese mes. Tener en cuenta esta lista:
+    Mes 1 y 2. Bimestre 1. Mes 3 y 4. Bimestre 2. Mes 5 y 6. Bimestre 3. 
+    Mes 7 y 8. Bimestre 4. Mes 9 y 10. Bimestre 5. Mes 11 y 12. Bimestre 6. 
+    Resolver este ejercicio utilizando la menor cantidad de salidas de IF posibles, de 
+    forma tal que si en un hipotético caso, hubiera años de 200 meses su diagrama 
+    no deba ser modificado en tal situación. 
+    Recordar también que la división directa con el operador / genera un resultado 
+    con fracción. Por ejemplo si mes=7 y usted calcula bimestre=7/2 el resultado 
+    que obtendrá es bimestre= 3.5, lo cual es incorrecto. */ 
+
+    int mes, bimestre; 
+
+    cout << "Ingrese el numero de mes: ";
+    cin >> mes;
+
+    if(mes % 2 == 0){
+        bimestre = mes/2;
+    } else {
+        bimestre = (mes + 1) / 2;
+    } 
+    cout << "El mes corresponde al bimestre: " << bimestre;
+
+    /* 24 - Hacer un programa para ingresar un número de mes y listar por pantalla a qué 
+    trimestre corresponde ese mes. Tener en cuenta esta lista: 
+    Mes 1, 2 y 3. Trimestre 1. Mes 4, 5 y 6. Trimestre 2. 
+    Mes 7, 8 y 9. Trimestre 3. Mes 10, 11 y 12. Trimestre 4. 
+    Resolver este ejercicio utilizando la menor cantidad de salidas de IF posibles, de 
+    forma tal que si en un hipotético caso, hubiera años de 200 meses su diagrama 
+    no deba ser modificado en tal situación. 
+    Recordar también que la división directa con el operador / genera un resultado 
+    con fracción. Por ejemplo si mes=7 y usted calcula trimestre=7/3 el resultado 
+    que obtendrá es trimestre= 2.33, lo cual es incorrecto */ 
+
+    int mes, trimestre; 
+
+    cout << "Ingrese el numero de mes: "; 
+    cin >> mes; 
+
+    if(mes % 3 == 0){ 
+        trimestre = mes/3; 
+    } else { 
+        trimestre = (mes + 2)/3; 
+    } 
+  
+    cout << "El mes corresponde al trimestre: " << trimestre; 
