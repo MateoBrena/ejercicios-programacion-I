@@ -1,0 +1,346 @@
+#include <iostream> 
+using namespace std; 
+
+int main() { 
+
+    /* 1 - Hacer un programa para ingresar por teclado la cantidad de horas trabajadas 
+    por un operario y el valor que se le paga por hora trabajada y listar por pantalla 
+    el sueldo que le corresponda.*/ 
+
+    int horas, valorHora, sueldo; 
+
+    cout << "Ingrese la cantidad de horas trabajadas: "; 
+    cin >> horas; 
+
+    cout << "Ingrese el valor de la hora: "; 
+    cin >> valorHora; 
+
+    sueldo = horas * valorHora; 
+    cout << "El sueldo a cobrar es: $" << sueldo; 
+
+   return 0; 
+}
+
+  /* 2 - Hacer un programa que solicite por teclado que se ingresen dos números y 
+    luego guardarlos en dos variables distintas. A continuación se deben 
+    intercambiar mutuamente los valores en ambas variables y mostrarlos por 
+    pantalla. 
+    Ejemplo: Suponiendo que se ingresan 3 y 8 como valores y que la variables 
+    usadas son A y B, entonces A=3 y B=8, pero luego debe quedar A=8 y B=3 */ 
+
+    int num1, num2, reserva; 
+
+    cout << "Ingrese el valor de la primer variable: "; 
+    cin >> num1; 
+
+    cout << "Ingrese el valor de la segunda variable: "; 
+    cin >> num2; 
+
+    reserva = num1; 
+    num1 = num2; 
+    num2 = reserva; 
+
+    cout << "El valor de la primer variable ahora es: " << num1 << endl;
+    cout << "El valor de la segunda variable ahora es: " << num2;
+
+ /* 3 - Una concesionaria de autos paga a los vendedores un sueldo fijo de $5000 más 
+    $700 de premio por cada auto vendido. Hacer un programa que permita 
+    ingresar por teclado la cantidad de autos vendidos por un vendedor y luego 
+    informar por pantalla el sueldo total a pagar. 
+    Ejemplo. Si la cantidad de autos vendidos fuera 4 entonces el sueldo total a 
+    pagar es de $7800. */ 
+
+    int autosVendidos, salario; 
+
+    cout << "Ingrese la cantidad de autos vendidos: "; 
+    cin >> autosVendidos; 
+
+    salario = 5000 + autosVendidos * 700; 
+
+    cout << "El salario a cobrar es de: $" << salario;
+
+/* 4 Hacer un programa para ingresar por teclado la cantidad de asientos totales en 
+    un avión y la cantidad de pasajes ocupados y luego calcular e informar el 
+    porcentaje de ocupación y el porcentaje de no ocupación del mismo. */ 
+
+    int asientosTotales, asientosOcupados, asientosLibres, porcentajeOcupado, 	porcentajeLibre; 
+
+    cout << "Ingrese la cantidad total de asientos disponibles: "; 
+    cin >> asientosTotales; 
+
+    cout << "Ingrese la cantidad de asientos ocupados: "; 
+    cin >> asientosOcupados; 
+
+   asientosLibres = asientosTotales - asientosOcupados; 
+   porcentajeOcupado = asientosOcupados * 100 / asientosTotales; 
+   porcentajeLibre = asientosLibres * 100 / asientosTotales; 
+
+    cout << "El porcentaje de ocupacion es de: " << porcentajeOcupado << "%" << endl;
+    cout << "El porcentaje de no ocupacion es de " << porcentajeLibre << "%";
+
+ /* 5 -  Un comercio vende tres marcas de alfajores distintas A, B y C. Hacer un 
+    programa para ingresar por teclado la cantidad de alfajores vendidos de cada 
+    una de las tres marcas y luego se informe el porcentaje de ventas para cada 
+    una de ellas. 
+    Ejemplo. Si se ingresa 100, 25 y 75 como cantidades vendidas entonces el 
+    programa calculará e informará A: 50%, B: 12,50% y C: 37,50%.*/ 
+
+    float marcaA, marcaB, marcaC, total, porcentajeA, porcentajeB, porcentajeC; 
+
+    cout << "Ingrese la cantidad de alfajores vendidos de la primer marca: "; 
+    cin >> marcaA; 
+
+    cout << "Ingrese la cantidad de alfajores vendidos por la segunda marca: "; 
+    cin >> marcaB; 
+
+    cout << "Ingrese la cantidad de alfajores vendidos por la tercer marca: "; 
+    cin >> marcaC; 
+
+    total = marcaA + marcaB + marcaC; 
+    porcentajeA = marcaA * 100 / total; 
+    porcentajeB = marcaB * 100 / total; 
+    porcentajeC = marcaC * 100 / total; 
+
+    cout << "Porcentaje de alfajores vendidos por la marca A: " << porcentajeA << "%" << endl; 
+    cout << "Porcentaje de alfajores vendidos por la marca B: " << porcentajeB << "%" << endl; 
+    cout << "Porcentaje de alfajores vendidos por la marca C: " << porcentajeC << "%" << endl;
+
+/* 6 - Hacer un programa para que un comercio ingrese por teclado la recaudación           
+    en pesos para cada una de las cuatro semanas del mes. El programa debe listar la 
+    recaudación promedio por semana y el porcentaje de recaudación por semana. 
+    Ejemplo. Si se ingresa $1600, $1200, $4800 y $400 se listará como recaudación 
+    promedio $2000 y como porcentajes por semana: 20%, 15%, 60% y 5% */
+
+    int semana1, semana2, semana3, semana4, total, promedio, prSemana1, prSemana2, prSemana3, prSemana4;
+
+    cout << "Ingrese la recaudación de la primer semana: ";
+    cin >> semana1;
+
+    cout << "Ingrese la recaudación de la segunda semana: "; 
+    cin >> semana2; 
+
+    cout << "Ingrese la recaudación de la tercer semana: "; 
+    cin >> semana3; 
+
+    cout << "Ingrese la recaudación de la cuarta semana: "; 
+    cin >> semana4; 
+
+    total = semana1 + semana2 + semana3 +semana4; 
+    promedio = total / 4; 
+    prSemana1 = semana1 * 100 / total; 
+    prSemana2 = semana2 * 100 / total; 
+    prSemana3 = semana3 * 100 / total; 
+    prSemana4 = semana4 * 100 / total; 
+
+    cout << "La recaudacion promedio es de: $" << promedio << "%" << endl; 
+    cout << "El promedio por semana es: " << prSemana1 << "%, " << prSemana2 << "%, " << prSemana3 << "%, " << prSemana4 << "%.";
+
+  /* 7 - Hacer un programa para ingresar por teclado el importe de una venta y el
+    porcentaje de descuento aplicada a la misma y luego informar por pantalla el 
+    importe a pagar.
+    Ejemplo A. Si el importe de la venta es $1200 y el descuento es el 15% entonces 
+    el total a pagar será de $1020. 
+    Ejemplo B. Si el importe de la venta es $800 y el descuento es el 0% entonces el 
+    total a pagar será de $800 */ 
+
+    int importeVenta; 
+    float descuento, aPagar; 
+
+    cout << "Ingrese el importe de venta: "; 
+    cin >> importeVenta; 
+
+    cout << "Ingrese el porcentaje de descuento: "; 
+    cin >> descuento; 
+
+    aPagar = importeVenta * ((100 - descuento) / 100);
+
+    cout << "El total a pagar es de: $" << aPagar << endl;
+
+    /* 8 - Hacer un programa para ingresar por teclado el importe de una venta sin el 
+    descuento y el importe de esa misma venta con el descuento aplicado y luego 
+    informar por pantalla el porcentaje de descuento aplicada a la misma. 
+    Ejemplo A. Si el importe de la venta sin descuento es $1500 y el importe de la 
+    venta con descuento es $1200 entonces el porcentaje de descuento aplicado 
+    fue el 20% */ 
+
+    int importeCompleto, importeConDescuento ,descuentoAplicado; 
+
+    cout << "Ingrese el importe completo: "; 
+    cin >> importeCompleto; 
+
+    cout << "Ingrese el importe con descuento: "; 
+    cin >> importeConDescuento; 
+
+    descuentoAplicado = 100 - (importeConDescuento * 100 / importeCompleto); 
+
+    cout << "El descuento aplicado es del: " << descuentoAplicado << "%.";
+
+/* 9 - Hacer un programa para ingresar por teclado una cantidad de minutos y 
+    mostrar por pantalla a cuantas horas y minutos equivalen. 
+    Ejemplo A: si se ingresan 380 minutos el programa mostrará por pantalla que 
+    equivalen a 6 horas y 20 minutos. 
+    Ejemplo B: si se ingresan 720 minutos el programa mostrará por pantalla que 
+    equivalen a 12 horas y 0 minutos. 
+    Ejemplo C: si se ingresan 50 minutos el programa mostrará por pantalla que 
+    equivalen a 0 horas y 50 minutos */ 
+
+    int minutosIngresados, restoMinutos, horas; 
+
+    cout << "Ingrese la cantidad de minutos: "; 
+    cin >> minutosIngresados; 
+
+    restoMinutos = minutosIngresados % 60; 
+    horas = (minutosIngresados - restoMinutos) / 60; 
+
+    cout << "La cantidad de horas es igual a: " << horas << ". La cantidad de minutos es igual a: " << restoMinutos;
+
+/* 10 - Hacer un programa para ingresar por teclado una cantidad de horas y mostrar
+    por pantalla a cuantos días y horas equivalen. 
+    Ejemplo A: si se ingresan 26 horas el programa mostrará por pantalla que 
+    equivalen a 1 día y 2 horas. 
+    Ejemplo B: si se ingresan 72 horas el programa mostrará por pantalla que 
+    equivalen a 3 días y 0 horas. 
+    Ejemplo C: si se ingresan 20 horas el programa mostrará por pantalla que 
+    equivalen a 0 días y 20 horas */ 
+
+    int horasIngresadas, dias, restoHoras; 
+
+    cout << "Ingrese la cantidad de horas: "; 
+    cin >> horasIngresadas; 
+
+    restoHoras = horasIngresadas % 24; 
+    dias = (horasIngresadas - restoHoras) / 24; 
+
+    cout << "La cantidad de dias es igual a: " << dias << ". La cantidad de horas es igual a: " << restoHoras;
+
+  /* 11 - Hacer un programa para ingresar por teclado una cantidad de minutos y 
+    mostrar por pantalla a cuántos días, horas y minutos equivalen. 
+    Ejemplo A: si se ingresan 1520 minutos el programa mostrará por pantalla que 
+    equivalen a 1 día, 1 hora y 20 minutos. 
+    Ejemplo B: si se ingresan 480 minutos el programa mostrará por pantalla que 
+    equivalen a 0 día, 8 horas y 0 minutos */ 
+
+    int minutosIngresados, restoDias, dias, horas, minutos; 
+
+    cout << "Ingrese la cantidad de minutos: "; 
+    cin >> minutosIngresados; 
+
+    restoDias = minutosIngresados % 1440; 
+    dias = (minutosIngresados - restoDias) / 1440; 
+    horas = (minutosIngresados / 60) % 24; 
+    minutos = minutosIngresados % 60; 
+
+    cout << "Se calcularon " << dias << " dias, " << horas << " horas y " << minutos << " minutos."; 
+
+/* 12 - Una granja vende la caja de 12 unidades a $1000 y cada huevo suelto a $120. 
+    Hacer un programa para ingresar la cantidad de huevos que compra un cliente y 
+    mostrar por pantalla el importe total a pagar. 
+    Recordatorio. Por cada 12 huevos se debe calcular una caja y el excedente se 
+    calcula como suelto */ 
+ 
+  int cantidadHuevos, cajas, sueltos, total; 
+ 
+  cout << "Ingrese la cantidad de huevos: "; 
+  cin >> cantidadHuevos; 
+ 
+  sueltos = cantidadHuevos % 12; 
+  cajas = (cantidadHuevos - sueltos) / 12; 
+  total = (cajas * 1000) + (sueltos *120);
+
+  cout << "La cantidad a pagar es: $" << total;
+
+/* 13 -  Hacer un programa para un cajero automático para ingresar un importe a retirar
+    y convertir el mismo en la cantidad de billetes de $1.000, $500, $200 y $100 a
+    entregar.
+    Ejemplo A: Si el importe a retirar es $2500 se mostrará por pantalla que se
+    deberán entregar 2 billetes de $1.000, 1 billete de $500, 0 billetes de $200 y 0
+    billetes de $100.
+    Ejemplo B: Si el importe a retirar es $3400 se mostrará por pantalla que se
+    deberán entregar 3 billetes de $1.000, 2 billetes de $200, 0 billetes de $500 y 0
+    billetes de $100.
+    Ejemplo C: Si el importe a retirar es $300 se mostrará por pantalla que se
+    deberán entregar 1 billete de $200, 1 billete de $100, 0 billetes de $1.000 y 0
+    billetes de $500.
+    Recordatorio. Considerar en todos los casos que el importe a retirar es en todos
+    los casos múltiplo de $100 ya que el cajero no cuenta con billetes de $50, $20 o
+    $10 */
+
+    int importeRetiro, restoMil ,billetesMil, billetes500, resto500, billetes200, resto200, billetesCien;
+
+    cout << "Ingrese el importe a retirar: ";
+    cin >> importeRetiro;
+
+    restoMil = importeRetiro % 1000;
+    billetesMil = (importeRetiro - restoMil) / 1000;
+    billetes500 = restoMil / 500;
+    resto500 = importeRetiro % 500;
+    billetes200 = resto500 / 200;
+    resto200 = resto500 % 200;
+    billetesCien = resto200 / 100;
+
+    cout << "Se retiran: " << billetesMil << " billetes de $1000" << endl;
+    cout << billetes500 << " billetes de $500" << endl;
+    cout << billetes200 << " billetes de $200" << endl;
+    cout << billetesCien << " billetes de $100";
+
+    /* 14 -  Hacer un programa para ingresar el importe de una compra y el descuento a 
+    aplicar. Listar por pantalla, el importe sin descuento, el descuento aplicado y el 
+    importe total a cobrar. 
+    Ejemplo: se ingresa importe 4500, descuento 40; se deberá mostrar 
+    Importe: 4500, Descuento: 1800, total: 2700 */ 
+
+    int importeTotal, importeDescuento, aCobrar; 
+    float descuento; 
+
+    cout << "Ingrese el importe total de la compra: "; 
+    cin >> importeTotal; 
+
+    cout << "Ingrese el porcentaje de descuento a aplicar: "; 
+    cin >> descuento; 
+
+    aCobrar = importeTotal * (descuento / 100); 
+    importeDescuento = importeTotal - aCobrar; 
+
+    cout << "Importe total: $" << importeTotal << endl; 
+    cout << "Descuento: $" << importeDescuento << endl; 
+    cout << "A Cobrar: $" << aCobrar;
+
+/* 15 -  La amplitud térmica es la diferencia entre la temperatura máxima y la
+    temperatura mínima en una zona y tiempo determinado. Dada la temperatura
+    máxima y la temperatura mínima de San Fernando de ayer, calcular y mostrar la
+    amplitud térmica.
+    NOTA: El usuario ingresará como temperatura máxima un valor mayor o igual al
+    de la temperatura mínima */
+
+    int tempMaxima, tempMinima, amplitud; 
+
+    cout << "Ingresar la temperatura maxima: "; 
+    cin >> tempMaxima; 
+
+    cout << "Ingresar la temperatura minima: "; 
+    cin >> tempMinima; 
+
+    amplitud = tempMaxima - tempMinima; 
+
+    cout << "La amplitud termica es de: " << amplitud << " grados."; 
+
+/* 16 -  El Laboratorio V&V hace frascos de píldoras para aprender a programar. Cada 
+frasco contiene 75 píldoras y cada píldora contiene 45 mg de Betamol, 2 grs de 
+Micilina y 7 mg de Ácido Sinítico. 
+Nos solicitan un programa donde se ingrese la cantidad de frascos de un 
+pedido y muestre la cantidad de miligramos de Betamol, Micilina y de Ácido 
+Sinítico que son necesarios para elaborarlos. */ 
+ 
+int frascos, betamol, micilina, acidoSinitico; 
+ 
+cout << "Ingrese la cantidad de frascos: "; 
+cin >> frascos; 
+ 
+betamol = (45 * 75) * frascos; 
+micilina = (2 * 75) * frascos; 
+acidoSinitico = (7 * 45) * frascos; 
+ 
+cout << "Los insumos requeridos para elaborar " << frascos << " frascos son: " << endl; 
+cout << betamol << " mg de Betamol" << endl; 
+cout << micilina << " grs de Micilina" << endl; 
+cout << acidoSinitico << " mg de Acido Sinitico.";
