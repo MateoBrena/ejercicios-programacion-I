@@ -1,0 +1,813 @@
+    /* 1 - Hacer un programa para mostrar por pantalla los números del 1 al 10.
+    Importante: El programa no tiene ningún ingreso de datos.
+    Nota: probalo con For y con While
+
+    for(int i=1; i <= 10; i++){
+        cout << i << endl;
+    } */
+
+    int i=1;
+
+    while(i <= 10){
+        cout << i << endl;
+        i++;
+    }
+
+/* 2 - Hacer un programa para mostrar por pantalla los números del 1 al 20 salteando de a 3
+    valores. Es decir: 1, 4, 7, 10, 13, 16, 19.
+    Importante: El programa no tiene ningún ingreso de datos.
+    Nota: probalo con For y con While
+
+    for(int i=1; i < 20; i+=3){
+        cout << i << endl;
+    } */
+    int i=1;
+
+    while(i < 20){
+        cout << i << endl;
+        i+=3;
+    }
+ 
+
+    /* 3 - Hacer un programa para mostrar por pantalla los números del 20 al 1 en orden decreciente.
+    Importante: El programa no tiene ningún ingreso de datos.
+    Nota: probalo con For y con While
+
+    for(int i=20; i > 0; i--){
+        cout << i << endl;
+    } */
+
+    int i=20;
+
+    while(i > 0){
+        cout << i << endl;
+        i--;
+    }
+
+/* 4 - Hacer un programa para que el usuario ingrese un número positivo y luego se
+    muestren por pantalla los números entre el 1 y el número ingresado por el
+    usuario. Ejemplo. Si el usuario ingresa 15, se mostrarán los números entre el 1 y el 15. */
+    int numero;
+
+    cout << "Ingrese un numero positivo: ";
+    cin >> numero;
+
+    if(numero > 0){
+        for(int i=1; i < numero; i++){
+            cout << i << endl;
+        }
+    }else{
+        cout << "El numero no es positivo, no se puede operar.";
+    }
+
+    /* 5 - Hacer un programa para que el usuario ingrese dos números y luego el programa
+    muestre por pantalla los números entre el menor y el mayor de ambos.
+    Ejemplo, si el usuario ingresa 3 y 15, se mostrarán los números entre el 3 y el 15
+    y si el usuario ingresa 25 y 8, se mostrarán los números entre el 8 y el 25. */
+
+    int numero1, numero2;
+    int maximo, minimo;
+
+    cout << "Ingrese un el primer numero: ";
+    cin >> numero1;
+
+    cout << "Ingrese un el segundo numero: ";
+    cin >> numero2;
+
+    if(numero1 > numero2){
+        maximo = numero1;
+        minimo = numero2;
+    }else if(numero2 > numero1){
+        maximo = numero2;
+        minimo = numero1;
+    } else {
+        cout << "Los numeros son iguales, no se puede operar";
+    }
+     for(int i= minimo+1; i < maximo; i++){
+        cout << i << endl;
+    }
+
+    /* 6 - Hacer un programa para ingresar un N valor que indica la cantidad de números
+    que componen una lista y luego solicitar se ingresen esos N números. Se pide
+    informar cuantos son positivos
+    Ejemplo A: Se ingresa como N el valor 5, y luego se ingresa: 10, -3, 2, 5, 4. Se
+    listará: Cantidad de Positivos: 4
+    Ejemplo B: Se ingresa como N el valor 6, y luego se ingresa: -10, -3, -2, 0, -5, -4. Se
+    listará: Cantidad de Positivos: 0 */
+
+    int tamanio, numero;
+    int i = 0;
+    int positivos = 0;
+
+    cout << "Ingrese el tamanio de la lista: ";
+    cin >> tamanio;
+
+    /* for(int i=0; i < tamanio; i++){
+        cout << "Ingrese un numero: " << endl;
+        cin >> numero;
+
+        if(numero > 0){
+            positivos++;
+        }
+    } */
+
+    while(i < tamanio){
+        i++;
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero > 0){
+            positivos++;
+        }
+    }
+
+    cout << "La cantidad de positivos en la lista es: " << positivos;
+
+/* 7 - Hacer un programa para ingresar una lista de 10 números, luego informar
+    cuántos son positivos, cuántos son negativos, y cuántos iguales a cero. */
+
+    int numero;
+    int positivos = 0;
+    int negativos = 0;
+    int ceros = 0;
+
+    for(int i=0; i < 10; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero; 
+
+        if(numero > 0){
+            positivos++;
+        }else if(numero < 0){
+            negativos++;
+        } else {
+            ceros++;
+        }
+    }
+
+    cout << "La cantidad de positivos en la lista es: " << positivos << endl;
+    cout << "La cantidad de negativos en la lista es: " << negativos << endl;
+    cout << "La cantidad de ceros en la lista es: " << ceros << endl;
+
+/* 8 - Hacer un programa para ingresar una lista de números que finaliza cuando se ingresa un cero,
+    luego informar cuántos son positivos y cuántos son negativos.
+    Ejemplo: 4, -3, 8, -5, 18, 20, 0. Se listará Positivos: 4 Negativos: 2 */
+
+    int numero = 1;
+    int positivos = 0;
+    int negativos = 0;
+
+    while(numero != 0){
+        cout << "Ingrese un numero: ";
+        cin >> numero; 
+
+        if(numero > 0){
+            positivos++;
+        }else if (numero < 0){
+            negativos++;
+        }
+    }
+
+    cout << "La cantidad de positivos en la lista es: " << positivos << endl;
+    cout << "La cantidad de negativos en la lista es: " << negativos << endl;
+
+    /* 9 - Hacer un programa para ingresar una lista de 10 números, luego informar el
+    porcentaje de positivos, negativos, y ceros. */
+
+    int numero;
+    int positivos = 0;
+    int negativos = 0;
+    int ceros = 0;
+
+    for(int i=0; i < 10; i++){
+        cout << "Ingrese un numero: " << endl;
+        cin >> numero;
+        if(numero > 0){
+            positivos++;
+        }else if(numero < 0){
+            negativos++;
+        } else {
+            ceros++;
+        }
+    }
+
+    cout << "El porcentaje de positivos en la lista es: " << float(positivos*100/10) << "%" << endl;
+    cout << "El porcentaje de negativos en la lista es: " << float(negativos*100/10) << "%" << endl;
+    cout << "El porcentaje de ceros en la lista es: " << float(ceros*100/10) << "%" << endl;
+
+/* 10 - Hacer un programa para ingresar una lista de 10 números, luego informar el máximo.
+    Ejemplo A: 5, 10, 20, 8, 25, 13, 35, -8, -5, 20. Se listará Máximo 35.
+    Ejemplo B: 5, 10, 20, 8, 55, 13, 55, -8, -5, 20. Se listará Máximo 55.
+    Ejemplo C: -15, -10, -20, -8, -25, -13, -55, -6, -55, -20. Se listará Máximo -6 */
+
+    int numero, maximo;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero; 
+
+    maximo = numero;
+
+    for(int i=1; i < 10; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero > maximo){
+            maximo = numero;
+        }
+    }
+    cout << "El numero mayor es: " << maximo;
+
+/* 11 - Hacer un programa para ingresar una lista de 10 números, luego informar el
+    máximo y la posición del máximo en la lista. En caso de “empates” considerar la
+    primera aparición.
+    Ejemplo A: 5, -10, 20, 8, 25, 13, 35, -8, -5, 20. Listará Máximo 35 Posición 7.
+    Ejemplo B: 5, -10, 2, 8, 25, 13, 55, -8, 55, 9. Listará Máximo 55 Posición 7.
+    Ejemplo C: -15, -10, -20, -8, -25, -13, -55, -6, -55, -20. Listará Máximo -6 Posición 8 */
+
+    int numero, maximo;
+    int posicion = 1;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    maximo = numero;
+
+    for(int i=2; i <= 10; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero > maximo){
+            maximo = numero;
+            posicion = i;
+        }
+    }
+    cout << "El numero mayor es: " << maximo << " en la posicion: " << posicion;
+
+/* 12 - Hacer un programa para ingresar una lista de números que finaliza cuando se ingresa un
+    cero, luego informar el promedio de los números negativos. En caso de no haber
+    números negativos en la lista indicar “No se puede calcular el promedio” */
+
+    int tamanio = 0;
+    int numero = 1;
+    int negativos = 0;
+
+    while(numero != 0){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero < 0){
+            negativos++;
+            tamanio++;
+        } else if(numero > 0){
+            tamanio++;
+        }
+    }
+
+    if(negativos > 0){
+        cout << "El porcentaje de numeros negativos es: " << (float)(negativos*100)/tamanio << "%";
+    } else {
+        cout << "No se puede calcular el promedio";
+    }
+
+    /* 13 - Hacer un programa para ingresar una lista de 10 números e informar el máximo
+    de los negativos y el mínimo de los positivos.
+    Ejemplo: 5, 8, 12, 2, -10, 15, -20, 8, -3, 24. Máximo Negativo -3. Mínimo Positivo 2 */
+
+    int numero, maximoNegativo, minimoPositivo;
+    bool hayNegativo, hayPositivo;
+    hayNegativo = false;
+    hayPositivo = false;
+
+    for(int i=0; i < 10; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero < 0){
+            if(!hayNegativo || numero > maximoNegativo){
+                maximoNegativo = numero;
+                hayNegativo = true;
+            }
+        }
+
+        if(numero > 0){
+            if(!hayPositivo || numero < minimoPositivo){
+                minimoPositivo = numero;
+                hayPositivo = true;
+            }
+        }
+    }
+
+    if(hayNegativo){
+        cout << "El maximo negativo es: " << maximoNegativo << endl;
+    } else {
+        cout << "No se ingreso ningun numero negativo" << endl;
+    }
+    if(hayPositivo){
+        cout << "El minimo positivo es: " << minimoPositivo << endl;
+    } else {
+        cout << "No se ingreso ningun numero positivo" << endl;
+    } 
+
+/* 14 - Dada una lista de 10 números informar cual es el máximo de los pares.
+    Ejemplo A: 2, 10, 20, 8, 25, 13, 36, - 8, -5, 20 se informa máximo: 36
+    Ejemplo B 5, -13, 23, 81, -55, -13, 55, 4, 15 ,-20 Se informa máximo: 4
+    Ejemplo C: -5, -13, -20, -8, -55, -13, -55, -14, -15, -20 se informa máximo: -8 */
+
+    int numero, maximoPar;
+    bool hayPar;
+    hayPar = false;
+
+    for(int i=0; i < 10; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero % 2 == 0){
+            if(!hayPar || numero > maximoPar){
+                maximoPar = numero;
+                hayPar = true;
+            }
+        }
+    }
+
+    if(hayPar){
+        cout << "El maximo par es: " << maximoPar << endl;
+    } else {
+        cout << "No se ingreso ningun numero par" << endl;
+    }
+
+    /* 15 -Dada una lista de números que finaliza cuando se ingresa un cero,
+    informar cuál es el primer y segundo número impar ingresado.
+    Ejemplo 8, 4, 5, 6, -9, 5, 7, 0 se informa 5 y -9. */
+
+    int numero = 1;
+    int primerImpar, segundoImpar;
+    bool hayPrimerImpar, haySegundoImpar;
+    hayPrimerImpar = false;
+    haySegundoImpar = false;
+
+    while(numero != 0){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero % 2 != 0){
+            if (!hayPrimerImpar){
+                primerImpar = numero;
+                hayPrimerImpar = true;
+            } else if( hayPrimerImpar && !haySegundoImpar){
+                segundoImpar = numero;
+                haySegundoImpar = true;
+            }
+        }
+    }
+
+    if(hayPrimerImpar && haySegundoImpar){
+        cout << "El primer numero impar ingresado es: " << primerImpar << endl;
+        cout << "El segundo numero impar ingresado es: " << segundoImpar;
+    } else if (!hayPrimerImpar){
+        cout << "No se ingresaron numeros impares";
+    } else {
+        cout << "El primer numero impar ingresado es: " << primerImpar << endl;
+        cout << "No se ingresaron dos numeros impares, no hay un segundo impar";
+
+/* 16- Dada una lista de números que finaliza cuando se ingresa un cero,
+    informar cuál es el primer y último número impar ingresado.
+    Ejemplo 8, 4, -5, 6, 9, 5, 18, 0 se informa -5 y 5. */
+
+    int numero = 1;
+    int primerImpar, segundoImpar;
+    bool hayPrimerImpar, haySegundoImpar;
+    hayPrimerImpar = false;
+    haySegundoImpar = false;
+
+    while(numero != 0){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero % 2 != 0){
+            if (!hayPrimerImpar){
+                primerImpar = numero;
+                hayPrimerImpar = true;
+            } else if( hayPrimerImpar && !haySegundoImpar){
+                segundoImpar = numero;
+                haySegundoImpar = true;
+            } else if(haySegundoImpar){
+                segundoImpar = numero;
+            }
+        }
+    }
+
+    if(hayPrimerImpar && haySegundoImpar){
+        cout << "El primer numero impar ingresado es: " << primerImpar << endl;
+        cout << "El ultimo numero impar ingresado es: " << segundoImpar;
+    } else if (!hayPrimerImpar){
+        cout << "No se ingresaron numeros impares";
+    } else {
+        cout << "El primer numero impar ingresado es: " << primerImpar << endl;
+        cout << "No se ingresaron dos numeros impares, no hay un segundo impar";
+    } 
+
+/* 17 - Hacer un programa para ingresar 5 números, luego informar los 2 mayores
+    valores ingresados, aclarando cual es el máximo y cuál el que le sigue.
+    Ejemplo A: 10, 8, 12, 14, 3 el resultado será 14 y 12.
+    Ejemplo B: 14, 8, 12, 14 ,3 el resultado será 14 y 14.
+    Ejemplo C: -4, -8, -12, -20, -10 el resultado será -4 y -8
+    Ejemplo D: 100, 20, 5, -15, 70, el resultado será 100 y 70.
+    Ejemplo E: -100, -20, -5, 15, -70, el resultado será 15 y -5 */
+
+    int numero, mayor, segundoMayor;
+
+    cout << "Ingrese un numero: ";
+    cin >> mayor;
+
+    cout << "Ingrese un numero: ";
+    cin >> segundoMayor;
+
+    if (segundoMayor > mayor) {
+        int temp = mayor;
+        mayor = segundoMayor;
+        segundoMayor = temp;
+    }
+
+    for(int i=2; i < 5; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero; 
+
+        if(numero >= mayor){
+            segundoMayor = mayor;
+            mayor = numero;
+        } else if(numero > segundoMayor && numero < mayor){
+            segundoMayor = numero;
+        }
+    }
+    cout << "El numero mayor es: " << mayor << " y el segundo mayor es: " << segundoMayor;
+
+/* 18 -  Hacer un programa para ingresar una lista de 8 números y luego informar si todos
+    están ordenados en forma creciente. En caso de haber dos números
+    “empatados” considerarlos como crecientes. Por ejemplo si la lista fuera:
+    Ejemplo A: -10, 1, 5, 7, 15, 18, 20, 23 se emitirá un cartel: “Conjunto Ordenado”
+    Ejemplo B: 10, 10, 15, 20, 25, 25, 28, 33 se emitirá un cartel: “Conjunto Ordenado”
+    Ejemplo C: 10, 1, 15, 7, -15, 18, 20, 23 se emitirá un cartel: “Conjunto No Ordenado” */
+
+    int numero, anterior;
+    bool ordenado = true;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    anterior = numero;
+
+    for(int i=1; i < 8; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero >= anterior){
+            anterior = numero;
+        } else {
+            ordenado = false;
+        }
+    }
+
+    if(ordenado){
+        cout << "Conjunto Ordenado";
+    } else {
+        cout << "Conjunto desordenado";
+    } 
+
+/* 19 - Hacer un programa para ingresar una lista de números que finaliza cuando se ingresan dos
+    números positivos consecutivos, y luego informar la cantidad de ternas de números ceros
+    ingresados consecutivamente.
+    Ejemplo A: 5, -10, 20, 0, 0, 0, -35, 0, 0, 0, -8, 15, 10. Se listará 2 ternas de números ceros
+    ingresadas consecutivamente. */
+
+    int numero, cerosConsecutivos, positivos, ternas;
+    ternas = 0;
+    cerosConsecutivos = 0;
+    positivos = 0; 
+
+    while(positivos < 2){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero > 0){
+            positivos++;
+        } else{
+            positivos = 0;
+        }
+        if(numero == 0){
+            cerosConsecutivos++;
+        } else {
+            cerosConsecutivos = 0;
+        }
+        if(cerosConsecutivos == 3){
+            ternas++;
+            cerosConsecutivos = 0;
+        }
+    }
+    cout << "Cantidad de ternas de numeros cero: " << ternas << endl; 
+
+    /* 20 - Hacer un programa para ingresar un número y luego
+    informar la cantidad de divisores de ese número.
+    Ejemplo A. Si se ingresa 6 se listará: 4 divisores.
+    Ejemplo B. Si se ingresa 9 se listará: 3 divisores.
+    Ejemplo C. Si se ingresa 11 se listará: 2 divisores.  */
+
+    int numero;
+    int divisores = 0;
+    int i=1;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    while(i <= numero){
+        if(numero % i == 0){
+            divisores++;
+        }
+        i++;
+    }
+    cout << "La cantidad de divisores de " <<numero <<  " es "<< divisores << endl; 
+
+    /* 21 - Se define a un número como primo cuando tiene solamente dos divisores.
+    Ejemplo A: 2, 7, 11, 13 son números primos, ya que todos tienen solamente dos divisores.
+    Ejemplo B: 6 no es primo, pues tiene 4 divisores (1, 2, 3 y 6)
+    Ejemplo C: 9 no es primo, pues tiene 3 divisores (1, 3 y 9)
+    Hacer un programa para ingresar un número y luego informar con un cartel aclaratorio si
+    el mismo es un número primo o es número no primo.  */
+
+    int numero;
+    int divisores = 1;
+    int i=2;
+  
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    while(i <= numero){
+        if(numero % i == 0){
+            divisores++
+        }
+        i++;
+    }
+    if(divisores == 2){
+        cout << "Es primo.";
+    } else {
+        cout << "No es primo.";
+    }
+
+ /* 22 - Hacer un programa que permita ingresar una lista de números positivos, negativos o cero hasta
+    que la diferencia entre el máximo y el mínimo sea mayor a 10. Calcular e informar:
+    - La cantidad de números que componen la lista.
+    Ejemplo A: 1, 4, 6, -10  Cantidad de números: 4
+    Ejemplo B: 100, 104, 106, 100, 100, 105, 200 Cantidad de números: 7 */
+
+    int numero, maximo, minimo;
+
+    cout << "Ingrese un numero: ";
+    cin >> maximo;
+
+    minimo = maximo;
+    int diferencia = 0;
+    int i = 0;
+
+    while(diferencia < 10){
+        i++;
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero > maximo){
+            maximo = numero;
+        }
+
+        if(numero < minimo){
+            minimo = numero;
+        }
+        diferencia = maximo - minimo;
+    }
+
+    cout << "La cantidad de numeros en la lista es: " << i << endl; 
+
+    /* 23 - Hacer un programa que permita ingresar una lista de números positivos,
+    negativos o cero hasta que se ingrese el 5º número par.
+    Calcular e informar:
+    - La cantidad de ternas de números negativos ingresados de manera consecutiva.
+    Ejemplo A: 4, -1, -4, -5, 10, -3, -5, 7, -5, -3, -6, 10  Cantidad de ternas: 2 */
+
+    int numero, ternas, pares, impares;
+
+    ternas = 0;
+    pares = 0;
+
+    while(pares < 5){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero % 2 == 0){
+            pares++;
+            impares = 0;
+        } else {
+            impares++;
+        }
+
+        if(impares == 3){
+            ternas++;
+            impares = 0;
+        }
+    }
+    cout << "La cantidad de ternas impares en la lista es: " << ternas;
+
+    /* 24 - Hacer un programa que permita ingresar el legajo y sueldo de
+    10 empleados y determine: El legajo del empleado con mayor sueldo */
+
+    int legajo, sueldo, legajoMayorSueldo, mayorSueldo;
+
+        cout << "Ingrese un legajo: ";
+        cin >> legajoMayorSueldo;
+
+        cout << "Ingrese el sueldo del legajo ingresado: ";
+        cin >> mayorSueldo;
+
+    for(int i=1; i < 10; i++){
+        cout << "Ingrese un legajo: ";
+        cin >> legajo;
+
+        cout << "Ingrese el sueldo del legajo ingresado: ";
+        cin >> sueldo;
+
+        if(sueldo > mayorSueldo){
+            mayorSueldo = sueldo;
+            legajoMayorSueldo = legajo;
+        }
+    }
+    cout << "El legajo del empleado con el mayor sueldo es: " << legajoMayorSueldo;
+
+/* 25 - Hacer un programa que permita ingresar el sueldo y la
+    modalidad de trabajo (1 – Fulltime y 2 – Parttime) de 10 empleados y determine:
+    - La cantidad de trabajadores part-time con sueldos mayores a $750000.
+    - El sueldo promedio de los trabajadores Fulltime.
+    - Qué modalidad tiene más trabajadores que ganan más de un millón de pesos. (Se
+    debe mostrar Fulltime o Parttime)
+    NOTA: Asumir que una modalidad tendrá más trabajadores que ganan más de un
+    millón de pesos que la otra. */
+
+    int modalidad, sueldo;
+    int fulltimes = 0;
+    int sueldosFullTime = 0;
+    int partimes = 0;
+    int partimesMayores750 = 0;
+    int partimesMayoresMillon = 0;
+    int fulltimesMayoresMillon = 0;
+
+    for(int i=0; i < 10; i++){
+        cout << "Ingrese la modalidad del empleado (1=Full-Time o 2=Part-Time): ";
+        cin >> modalidad;
+
+        cout << "Ingrese el sueldo del empleado: ";
+        cin >> sueldo;
+
+        if(modalidad == 1){
+            fulltimes++;
+            sueldosFullTime += sueldo;
+            if(sueldo > 1000000){
+                fulltimesMayoresMillon++;
+            }
+        }
+
+        if(modalidad == 2){
+            partimes++;
+            if(sueldo > 750000){
+                partimesMayores750++;
+                if(sueldo > 1000000){
+                    partimesMayoresMillon++;
+                }
+            }
+        }
+    }
+
+    cout << "Empleados Part-Time con sueldos mayores a $750.000: " << partimesMayores750 << endl;
+    cout << "Sueldo promedio de los trabajadores Full-Time: $" << sueldosFullTime/fulltimes << endl;
+
+    if(fulltimesMayoresMillon > partimesMayoresMillon){
+        cout << "Modalidad con mas trabajadores que ganan mas de un millon: Full-Time";
+    }else {
+        cout << "Modalidad con mas trabajadores que ganan mas de un millon: Part-Time"; 
+
+    }
+
+ /* 26 - La cuenta corriente de una famosa cantante ha registrado 14
+    movimientos durante la semana pasada. Por cada movimiento se registró:
+    - Número de movimiento
+    - Día
+    - Tipo (1 - Extracción /2 - Depósito)
+    - Importe
+    Existe un registro por movimiento. Se desea calcular e informar:
+    - El saldo final de la cuenta.
+    - El porcentaje de movimientos de extracción y el porcentaje de depósito.
+    - El depósito de mayor importe indicando también día y número de movimiento.
+    - La cantidad de movimientos del día 10.
+     */
+
+    int tipo, importe, dia, nroMayorDeposito;
+    int saldo = 0;
+    int extracciones = 0;
+    int depositos = 0;
+    int nroMovimiento = 0;
+    int dia10 = 0;
+    int mayorDeposito = 0;
+
+    for(int i=0; i < 6; i++){
+        nroMovimiento++;
+
+        cout << "Ingrese el dia: ";
+        cin >> dia;
+
+        cout << "Ingrese el tipo de transaccion (1=Extraccion o 2=Deposito): ";
+        cin >> tipo;
+
+        cout << "Ingrese el importe: ";
+        cin >> importe;
+
+        if(tipo == 1){
+            extracciones++;
+            saldo -= importe;
+        }
+        if(tipo == 2){
+            depositos++;
+            saldo += importe;
+        }
+        if(importe > mayorDeposito){
+            mayorDeposito = importe;
+            nroMayorDeposito = nroMovimiento;
+        }
+        if(dia == 10){
+            dia10++;
+        }
+    }
+
+    cout << "Saldo final de la cuenta: $" << saldo << endl;
+    cout << "Porcentaje de extracciones: " << (extracciones*100)/(float)nroMovimiento << "%" << endl;
+    cout << "Porcentaje de depositos: " << (depositos*100)/(float)nroMovimiento << "%" << endl;
+    cout << "El mayor deposito fue de $" << mayorDeposito << " , movimiento numero: " << nroMayorDeposito << endl;
+    cout << "Cantidad de movimienros del dia 10: " << dia10 << " movimientos";
+
+    /* 29 -  Hacer un programa para ingresar una lista de números que
+    corta cuando se ingresa un cero. Emitir en pantalla cuántos de esos
+    números son pares y cuántos de esos números son primos.*/
+
+    int numero = 1;
+    int pares = 0;
+    int primos = 0;
+
+    while(numero != 0){
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero % 2 == 0 && numero != 0){
+            pares++;
+        }
+
+        int i = 2;
+        int divisores = 1;
+  
+        while(i <= numero){
+            if(numero % i == 0){
+                divisores++;
+            }
+            i++;
+        }
+
+        if(divisores == 2){
+            primos++;
+        }
+    }
+
+    cout << "La cantidad de numeros pares es: " << pares << endl;
+    cout << "La cantidad de numeros primos es: " << primos << endl;
+
+    /* 30 -  Una fundación necesita recaudar $50000 para una causa benéfica.
+    Se solicita un programa que permita registrar las donaciones que realiza
+    la gente y que finalice la recaudación de dinero cuando se cumpla o supere
+    el objetivo de los $50000. Luego, el programa debe emitir:
+    A) La cantidad de donaciones recibidas.
+    B) El monto de la donación más generosa.
+    C) La cantidad de donaciones que superaron el 1% de la deuda */
+
+    int valorDonacion;
+    int cantidadDonaciones = 0;
+    int totalRecaudado = 0;
+    int donacionGenerosa = 0;
+    int donacionesSuperadoras = 0;
+
+    while(totalRecaudado < 50000){
+        cout << "Ingrese el monto de la donacion: ";
+        cin >> valorDonacion;
+
+        totalRecaudado += valorDonacion;
+
+        if(valorDonacion > donacionGenerosa){
+            donacionGenerosa = valorDonacion;
+        }
+        if(valorDonacion > 50000 * 0.01){
+            donacionesSuperadoras++;
+        }
+        cantidadDonaciones++;
+    }
+    cout << "Cantidad de donaciones: " << cantidadDonaciones << endl;
+    cout << "Donacion mas generosa: $" << donacionGenerosa << endl;
+    cout << "Donaciones que superaron el 1% de la deuda: " << donacionesSuperadoras;
