@@ -434,3 +434,130 @@
 
     cout << endl << "Camion con mas encomiendas: " << camionConMasEncomiendas << endl;
     cout << "Numero mayor de encomiendas: " << numeroMayorEncomiendas << endl;
+
+    /* 8 - Dada una lista de números compuesta por grupos donde cada grupo está separado del
+    siguiente por un cero, y la lista de números finaliza cuando se ingresan dos ceros
+    consecutivos, se pide determinar e informar:
+    a) La cantidad de grupos en los que se detecten un total de 4 o más números primos
+    consecutivos. Se informa 1 resultado al final.
+    b) Para cada uno de los grupos en los que se haya detectado números negativos, el mayor y
+    el segundo mayor de los mismos y en que posición estaban dentro del subgrupo. En los
+    grupos sin negativos, informar “Grupo sin negativos”. Se informan 4 resultados por cada
+    grupo.
+    c) El mayor número primo de todos los grupos, informando además en que grupo y en qué
+    posición del mismo fue detectado. Se informan 3 resultados al final.
+    Ejemplo de una posible lista: 5, 4, 3, 0, 18, -5, 20, 0, 7, 11, 25, 4, 0, 0.*/
+
+    int numero;
+    int cerosConsecutivos = 0;
+    int numeroGrupo = 0;
+    int cantidadGruposPrimosConsecutivos = 0;
+    int mayorPrimo = 0;
+    int grupoMayorPrimo = 0;
+    int posicionMayorPrimo = 0;
+
+    while(cerosConsecutivos < 2){
+        int cantidadNegativos = 0;
+        int posicionEnGrupo = 0;
+        int primosConsecutivos = 0;
+        int mayorNegativo;
+        int posicionMayorNegativo;
+        int segundoMayorNegativo;
+        int posicionSegundoMayorNegativo;
+
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        if(numero == 0){
+            cerosConsecutivos++;
+        }
+        if(cerosConsecutivos == 2){
+            break;
+        }
+
+        while(numero != 0){
+            if(numeroGrupo == 0){
+                numeroGrupo++;
+            }
+            cerosConsecutivos = 0;
+            posicionEnGrupo++;
+            if(numero < 0){
+                cantidadNegativos++;
+                if(cantidadNegativos == 1){
+                    mayorNegativo = numero;
+                    posicionMayorNegativo = posicionEnGrupo;
+                }
+                if(cantidadNegativos == 2){
+                    if(numero > mayorNegativo){
+                        segundoMayorNegativo = mayorNegativo;
+                        posicionSegundoMayorNegativo = posicionMayorNegativo;
+                        mayorNegativo = numero;
+                        posicionMayorNegativo = posicionEnGrupo;
+                    }else{
+                        segundoMayorNegativo = numero;
+                        posicionSegundoMayorNegativo = posicionEnGrupo;
+                    }
+                }else{
+                    if(numero > mayorNegativo){
+                        segundoMayorNegativo = mayorNegativo;
+                        posicionSegundoMayorNegativo = posicionMayorNegativo;
+                        mayorNegativo = numero;
+                        posicionMayorNegativo = posicionEnGrupo;
+                    }else{
+                        if(numero > segundoMayorNegativo){
+                            segundoMayorNegativo = numero;
+                            posicionSegundoMayorNegativo = numero;
+                        }
+                    }
+                }
+            }else{
+                int divisor = 2;
+                int divisores = 1;
+                while(divisor <= numero){
+                    if(numero % divisor == 0){
+                        divisores++;
+                    }
+                    divisor++;
+                }
+                if(divisores == 2){
+                    primosConsecutivos++;
+                    if(numero > mayorPrimo){
+                        mayorPrimo = numero;
+                        grupoMayorPrimo = numeroGrupo;
+                        posicionMayorPrimo = posicionEnGrupo;
+                    }
+                    if(primosConsecutivos == 4){
+                        cantidadGruposPrimosConsecutivos++;
+                    }
+                }else{
+                    primosConsecutivos = 0;
+                }
+            }
+
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            if(numero == 0){
+                cerosConsecutivos++;
+            }
+        }
+        if(numeroGrupo != 0){
+            if(cantidadNegativos >= 2){
+                cout << endl <<"Mayor negativo grupo: " << numeroGrupo << ": " << mayorNegativo << ". Posicion: " << posicionMayorNegativo << endl;
+                cout <<"Segundo mayor negativo grupo: " << numeroGrupo << ": " << segundoMayorNegativo << ". Posicion: " << posicionSegundoMayorNegativo << endl << endl;
+            }else if(cantidadNegativos == 1){
+                cout << endl <<"Mayor negativo grupo: " << numeroGrupo << ": " << mayorNegativo << ". Posicion: " << posicionMayorNegativo << endl;
+                cout << "No se ingreso un segundo numero negativo" << endl << endl;
+            }else{
+                cout << endl << "Grupo " << numeroGrupo << " sin numeros negativos" << endl << endl;
+            }
+            numeroGrupo++;
+        }
+    }
+
+    if(mayorPrimo == 0){
+        cout << endl << "No se ingresaron numeros primos" << endl;
+    }else{
+        cout << endl << "Cantidad de grupos con 4 o mas numeros primos consecutivos: " << cantidadGruposPrimosConsecutivos << endl;
+        cout << "Mayor numero primo encontrado: " << mayorPrimo << " en el grupo: " << grupoMayorPrimo << " en la posicion: " << posicionMayorPrimo << endl;
+    }
