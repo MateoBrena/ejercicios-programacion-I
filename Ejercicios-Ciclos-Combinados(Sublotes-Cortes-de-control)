@@ -561,3 +561,204 @@
         cout << endl << "Cantidad de grupos con 4 o mas numeros primos consecutivos: " << cantidadGruposPrimosConsecutivos << endl;
         cout << "Mayor numero primo encontrado: " << mayorPrimo << " en el grupo: " << grupoMayorPrimo << " en la posicion: " << posicionMayorPrimo << endl;
     }
+
+    int numeroArticulo;
+    int articuloAnterior;
+    int cantidadArticulosIngresados = 0;
+    int primeraSemana = 0;
+    int segundaSemana = 0;
+    int terceraSemana = 0;
+    int cuartaSemana = 0;
+    int mejorSemana;
+    std::string laMejorSemana;
+    int artMejorPrimerQuincena = 0;
+    int ventasMejorQuincena = 0;
+
+    cout << "Ingrese el numero de articulo: ";
+    cin >> numeroArticulo;
+
+    while(numeroArticulo !=  0){
+
+        if(numeroArticulo == 0){
+            break;
+        }
+        int dia;
+        int cantidadArticulos;
+        int importeVenta;
+        int recaudacionDelMes = 0;
+        int ventasPrimerQuincena = 0;
+
+        articuloAnterior=numeroArticulo;
+
+        while(numeroArticulo == articuloAnterior){
+
+            cout << "Ingrese el dia de la venta: ";
+            cin >> dia;
+
+            cout << "Ingrese la cantidad de articulos vendidos: ";
+            cin >> cantidadArticulos;
+
+            cout << "Ingrese el importe de la venta: ";
+            cin >> importeVenta;
+
+            recaudacionDelMes += importeVenta;
+
+            if(dia <= 15){
+                ventasPrimerQuincena += cantidadArticulos;
+                if(dia <= 7){
+                    primeraSemana += cantidadArticulos;
+                } else{
+                    segundaSemana += cantidadArticulos;
+                }
+            } else if(dia > 15 && dia <= 23){
+                terceraSemana += cantidadArticulos;
+            } else{
+                cuartaSemana += cantidadArticulos;
+            }
+
+            cout << "Ingrese el numero de articulo: ";
+            cin >> numeroArticulo;
+        }
+
+        if(cantidadArticulosIngresados == 0){
+            artMejorPrimerQuincena = articuloAnterior;
+        }else{
+            if(ventasPrimerQuincena > ventasMejorQuincena){
+                artMejorPrimerQuincena = articuloAnterior;
+                ventasMejorQuincena = ventasPrimerQuincena;
+            }
+        }
+
+        cout << endl << "Recaudacion de articulo " << articuloAnterior << ": " << "$" << recaudacionDelMes << endl << endl;
+
+        cantidadArticulosIngresados++;
+    }
+
+    laMejorSemana = "Primera Semana";
+    if(segundaSemana > mejorSemana){
+        laMejorSemana = "Segunda Semana";
+    }
+    if(terceraSemana > mejorSemana){
+        laMejorSemana = "Tercera Semana";
+    }
+    if(cuartaSemana > mejorSemana){
+        laMejorSemana = "Cuarta Semana";
+    }
+
+    cout << endl << "Semana con mejor venta: " << laMejorSemana << endl;
+
+    if(artMejorPrimerQuincena == 0){
+        cout << "No se vendierona articulos en la primer quincena" << endl;
+    } else{
+        cout << "Articulo mas vendido primer quincena: " << artMejorPrimerQuincena << endl;
+    }
+
+
+/* 9 - Una empresa registró las ventas que realizó durante el mes anterior.
+    Para cada venta se tienen los siguientes datos:
+    - Número de artículo (1 a 30)
+    - Día (1 a 31)
+    - Cantidad de artículos vendidos
+    - Importe recaudado por las ventas en ese día
+    Este lote finaliza con un registro con número de artículo igual a cero.
+    Los registros están agrupados por número de artículo. Se pide determinar e informar:
+    a) El número del artículo más vendido en total considerando las ventas de la primera
+    quincena. Se considera primera quincena los días del 1 al 15 inclusive.
+    b) Para cada uno de los artículos informar la recaudación total considerando todas las
+    ventas del mes.
+    c) Informar la semana en la que se vendió mayor cantidad de artículos en total. Se
+    considera:
+    Primera Semana: días 1 al 7. Segunda Semana: días 8 al 15.
+    Tercera Semana: días 16 al 23. Cuarta Semana: días 24 al 31 */
+
+    int numeroArticulo;
+    int articuloAnterior;
+    int cantidadArticulosIngresados = 0;
+    int primeraSemana = 0;
+    int segundaSemana = 0;
+    int terceraSemana = 0;
+    int cuartaSemana = 0;
+    int mejorSemana;
+    std::string laMejorSemana;
+    int artMejorPrimerQuincena = 0;
+    int ventasMejorQuincena = 0;
+
+    cout << "Ingrese el numero de articulo: ";
+    cin >> numeroArticulo;
+
+    while(numeroArticulo !=  0){
+
+        if(numeroArticulo == 0){
+            break;
+        }
+        int dia;
+        int cantidadArticulos;
+        int importeVenta;
+        int recaudacionDelMes = 0;
+        int ventasPrimerQuincena = 0;
+
+        articuloAnterior=numeroArticulo;
+
+        while(numeroArticulo == articuloAnterior){
+
+            cout << "Ingrese el dia de la venta: ";
+            cin >> dia;
+
+            cout << "Ingrese la cantidad de articulos vendidos: ";
+            cin >> cantidadArticulos;
+
+            cout << "Ingrese el importe de la venta: ";
+            cin >> importeVenta;
+
+            recaudacionDelMes += importeVenta;
+
+            if(dia <= 15){
+                ventasPrimerQuincena += cantidadArticulos;
+                if(dia <= 7){
+                    primeraSemana += cantidadArticulos;
+                } else{
+                    segundaSemana += cantidadArticulos;
+                }
+            } else if(dia > 15 && dia <= 23){
+                terceraSemana += cantidadArticulos;
+            } else{
+                cuartaSemana += cantidadArticulos;
+            }
+
+            cout << "Ingrese el numero de articulo: ";
+            cin >> numeroArticulo;
+        }
+
+        if(cantidadArticulosIngresados == 0){
+            artMejorPrimerQuincena = articuloAnterior;
+        }else{
+            if(ventasPrimerQuincena > ventasMejorQuincena){
+                artMejorPrimerQuincena = articuloAnterior;
+                ventasMejorQuincena = ventasPrimerQuincena;
+            }
+        }
+
+        cout << endl << "Recaudacion de articulo " << articuloAnterior << ": " << "$" << recaudacionDelMes << endl << endl;
+
+        cantidadArticulosIngresados++;
+    }
+
+    laMejorSemana = "Primera Semana";
+    if(segundaSemana > mejorSemana){
+        laMejorSemana = "Segunda Semana";
+    }
+    if(terceraSemana > mejorSemana){
+        laMejorSemana = "Tercera Semana";
+    }
+    if(cuartaSemana > mejorSemana){
+        laMejorSemana = "Cuarta Semana";
+    }
+
+    cout << endl << "Semana con mejor venta: " << laMejorSemana << endl;
+
+    if(artMejorPrimerQuincena == 0){
+        cout << "No se vendierona articulos en la primer quincena" << endl;
+    } else{
+        cout << "Articulo mas vendido primer quincena: " << artMejorPrimerQuincena << endl;
+    }
+
