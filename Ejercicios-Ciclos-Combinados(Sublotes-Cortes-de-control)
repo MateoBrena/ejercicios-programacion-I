@@ -762,3 +762,69 @@
         cout << "Articulo mas vendido primer quincena: " << artMejorPrimerQuincena << endl;
     }
 
+    /* 10 - Una empresa aérea registró los vuelos durante el mes pasado. Los registros están
+    agrupados por número de avión. El lote finaliza con un registro con código de avión igual a
+    cero. Cada registro contiene:
+    - Número de avión (1 a 50)
+    - Día del vuelo (1 a 31)
+    - Cantidad de asientos vendidos
+    - Cantidad de asientos no vendidos
+    - Minutos de puntualidad (> 0 si llegó atrasado, 0 si llegó en hora, < 0 si se adelantó)
+    Se pide determinar e informar:
+    a) El número de avión que tuvo menor porcentaje de asientos ocupados respecto al total de
+    asientos a ocupar, considerando todos los vuelos que haya efectuado en el mes.
+    b) El número de avión que sumó mayor cantidad de minutos de atraso.
+    c) Informar el día y número de avión que haya tenido la mayor cantidad individual de
+    minutos de atraso. */
+
+    int numeroAvion;
+
+    cout << "Ingrese el numero de avion: ";
+    cin >> numeroAvion;
+
+    while(numeroAvion != 0){
+
+        int dia;
+        float asientosVendidosVuelo = 0;
+        float asientosNoVendidosVuelo = 0;
+        float asientosVendidosMes = 0;
+        float asientosNoVendidosMes = 0;
+        float totalAsientos = 0;
+        float porcentajeVendido;
+        int minutosPuntualidad;
+        int minutosAtrasoMes = 0;
+        int minutosAtrasoVuelo = 0;
+        int mayorAtrasoVuelo = 0;
+        int nroAvionAnterior;
+
+        nroAvionAnterior = numeroAvion;
+
+        while(numeroAvion == nroAvionAnterior){
+
+            cout << "Ingrese el dia del vuelo: ";
+            cin >> dia;
+
+            cout << "Ingrese la cantidad de asientos vendidos: ";
+            cin >> asientosVendidosVuelo;
+
+            cout << "Ingrese la cantidad de asientos no vendidos: ";
+            cin >> asientosNoVendidosVuelo;
+
+            cout << "Ingrese los minutos de puntualidad: ";
+            cin >> minutosPuntualidad;
+
+            asientosVendidosMes += asientosVendidosVuelo;
+            asientosNoVendidosMes += asientosNoVendidosVuelo;
+
+            minutosAtrasoMes += minutosPuntualidad;
+
+            cout << "Ingrese el numero de avion: ";
+            cin >> numeroAvion;
+
+
+        }
+
+        totalAsientos = asientosVendidosMes + asientosNoVendidosMes;
+        porcentajeVendido = (asientosVendidosMes*100)/totalAsientos;
+        cout << endl << "Porcentaje de asientos vendidos vuelo " << nroAvionAnterior << ": " << porcentajeVendido << "%" <<endl;
+    }
