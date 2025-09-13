@@ -27,54 +27,57 @@
     cout << "La cantidad de numeros primos es: " << primos << endl; 
 
 
-    /* 2 - Dada una lista de números compuesta por 10 grupos y cada grupo separado del 
-    siguiente por un cero, se pide determinar e informar: 
-    a) Para cada uno de los grupos el máximo de los números pares y el máximo de los 
-    números impares. 
-    b) Para cada uno de los grupos el porcentaje de números negativos y números positivos. 
-    c) Cuantos números positivos había en total entre los 10 grupos.*/ 
+     /* 2 - Dada una lista de números compuesta por 10 grupos y cada grupo separado del
+    siguiente por un cero, se pide determinar e informar:
+    a) Para cada uno de los grupos el máximo de los números pares y el máximo de los
+    números impares.
+    b) Para cada uno de los grupos el porcentaje de números negativos y números positivos.
+    c) Cuantos números positivos había en total entre los 10 grupos.*/
 
-    int positivosTotales = 0; 
+    int positivosTotales = 0;
 
-    for(int i=1; i <= 10; i++){ 
+    for(int i=1; i <= 10; i++){
 
-        int maximoPar = -99999; 
-        int maximoImpar = -99999; 
-        int positivos = 0; 
-        int negativos = 0; 
-        int totalGrupo = 0; 
-        int numero; 
-        bool esCero = false; 
+        int maximoPar = -99999;
+        int maximoImpar = -99999;
+        int positivos = 0;
+        int negativos = 0;
+        float totalGrupo = 0;
+        float porcentajePositivos;
+        float porcentajeNegativos;
+        int numero;
 
-        while(!esCero){ 
+        cout << "Ingrese un numero: ";
+        cin >> numero;
 
-            cout << "Ingrese un numero: "; 
-            cin >> numero; 
+        while(numero != 0){
+            totalGrupo++;
+            if(numero > 0){
+                positivos++;
+                positivosTotales++;
+            }else{
+                negativos++;
+            }
+            if(numero % 2 == 0 && numero > maximoPar){
+                maximoPar = numero;
+            }else if(numero % 2 != 0 && numero > maximoImpar){
+                maximoImpar = numero;
+            }
 
-            if(numero != 0){ 
-                if(numero > 0){ 
-                    positivos++; 
-                    totalGrupo++; 
-                    positivosTotales++; 
-                } else { 
-                    negativos++; 
-                    totalGrupo++; 
-                } 
-                if(numero % 2 == 0 && numero > maximoPar){ 
-                    maximoPar = numero; 
-                }else if(numero % 2 != 0 && numero > maximoImpar){ 
-                    maximoImpar = numero; 
-                } 
-            } else { 
-                esCero = true; 
-            } 
-        } 
-        cout << endl << "Maximo par grupo " << i << ": " << maximoPar << endl; 
-        cout << "Maximo impar grupo " << i << ": " << maximoImpar << endl; 
-        cout << "Porcentaje de positivos grupo " << i << ": " << (positivos*100)/(float)totalGrupo << "%" << endl; 
-        cout << "Porcentaje de negativos grupo " << i << ": " << (negativos*100)/(float)totalGrupo << "%" << endl << endl; 
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+        }
 
+        porcentajePositivos = (positivos*100)/totalGrupo;
+        porcentajeNegativos = (negativos*100)/totalGrupo;
+
+        cout << endl << "Maximo par grupo " << i << ": " << maximoPar << endl;
+        cout << "Maximo impar grupo " << i << ": " << maximoImpar << endl;
+        cout << "Porcentaje de positivos grupo " << i << ": " << porcentajePositivos << "%" << endl;
+        cout << "Porcentaje de negativos grupo " << i << ": " <<  porcentajeNegativos << "%" << endl << endl;
     }
+
+    cout << endl << "Positivos totales: " << positivosTotales << endl;
 
 
     /* 3 - Se dispone de una lista de 10 grupos de números enteros separados entre ellos por
