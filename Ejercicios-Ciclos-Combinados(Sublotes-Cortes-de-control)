@@ -80,7 +80,7 @@
     cout << endl << "Positivos totales: " << positivosTotales << endl;
 
 
-    /* 3 - Se dispone de una lista de 10 grupos de números enteros separados entre ellos por
+     /* 3 - Se dispone de una lista de 10 grupos de números enteros separados entre ellos por
     ceros. Se pide determinar e informar:
     a) El número de grupo con mayor porcentaje de números impares positivos respecto al total
     de números que forman el grupo.
@@ -89,81 +89,79 @@
     c) Informar cuantos grupos están formados por todos números ordenados de mayor a
     menor*/
 
-    int gruposOrdenados = 0;
     int grupoConMayorPorcentajeImpPos;
     float mayorPorcentajeNumerosImpPos;
+    int gruposOrdenados = 0;
 
     for(int i=1; i <= 10; i++){
 
-        int cantidadNumeros = 0;
+        int numero;
+        float porcentajeNumerosImpPosGrupo = 0;
+        float cantidadNumeros = 0;
         int imparesPositivos = 0;
         bool hayPrimo = false;
-        bool esCero = false;
         int ultimoPrimo = 0;
         int posicionUltimoPrimo = 0;
-        int j = 0;
         bool grupoOrdenado = true;
 
-        while(!esCero){
-            int numero;
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        while(numero != 0){
+
+            cantidadNumeros++;
+            if(numero % 2 != 0 && numero > 0){
+                imparesPositivos++;
+            }
+
+            int divisor = 2;
+            int divisores = 1;
+            while(divisor <= numero){
+                if(numero % divisor == 0){
+                    divisores++;
+                }
+                divisor++;
+            }
+            if(divisores == 2){
+                hayPrimo = true;
+                ultimoPrimo = numero;
+                posicionUltimoPrimo = cantidadNumeros;
+            }
+            int anterior;
+            if(cantidadNumeros == 1){
+                anterior = numero;
+            }else{
+                if(anterior > numero){
+                    anterior = numero;
+                }else{
+                    grupoOrdenado = false;
+                }
+            }
 
             cout << "Ingrese un numero: ";
             cin >> numero;
-
-            if(numero != 0){
-                j++;
-                cantidadNumeros++;
-                if(numero % 2 != 0 && numero > 0){
-                    imparesPositivos++;
-                }
-                int divisor = 2;
-                int divisores = 1;
-                while(divisor <= numero){
-                    if(numero % divisor == 0){
-                        divisores++;
-                    }
-                    divisor++;
-                }
-                if(divisores == 2){
-                    hayPrimo = true;
-                    ultimoPrimo = numero;
-                    posicionUltimoPrimo = j;
-                }
-                int anterior;
-                if(j == 1){
-                    anterior = numero;
-                } else {
-                    if(anterior > numero){
-                        anterior = numero;
-                    } else {
-                        grupoOrdenado = false;
-                    }
-                }
-            }else{
-                esCero = true;
-            }
-
-            if(i ==1){
-                mayorPorcentajeNumerosImpPos = (imparesPositivos*100)/(float)cantidadNumeros;
-                grupoConMayorPorcentajeImpPos = i;
-            } else {
-                if(mayorPorcentajeNumerosImpPos < (imparesPositivos*100)/(float)cantidadNumeros){
-                    mayorPorcentajeNumerosImpPos = (imparesPositivos*100)/(float)cantidadNumeros;
-                    grupoConMayorPorcentajeImpPos = i;
-                }
-            }
         }
 
+        porcentajeNumerosImpPosGrupo = (imparesPositivos*100)/cantidadNumeros;
+
+        if(i ==1){
+            mayorPorcentajeNumerosImpPos = porcentajeNumerosImpPosGrupo;
+            grupoConMayorPorcentajeImpPos = i;
+        }else{
+            if(mayorPorcentajeNumerosImpPos < porcentajeNumerosImpPosGrupo){
+                mayorPorcentajeNumerosImpPos = porcentajeNumerosImpPosGrupo;
+                grupoConMayorPorcentajeImpPos = i;
+            }
+        }
         if(hayPrimo){
             cout << endl << "Ultimo numero primo: " << ultimoPrimo << ". Posicion: " << posicionUltimoPrimo << endl;
         } else{
             cout << endl <<"No hay primos en grupo " << i << endl;
         }
-        if(grupoOrdenado && j >= 2){
+        if(grupoOrdenado && cantidadNumeros >= 2){
             gruposOrdenados++;
         }
-
-        cout << "Porcentaje grupo " << i << " es: " << (imparesPositivos*100)/(float)cantidadNumeros << "%." << endl;
+        cout << "Porcentaje grupo " << i << " es: " << porcentajeNumerosImpPosGrupo << "%." << endl << endl;
     }
     cout << "Grupo con mayor porcentaje de impares positivos: " << grupoConMayorPorcentajeImpPos << ". "<< mayorPorcentajeNumerosImpPos << "%" << endl;
     cout << "Cantidad de grupos ordenados de mayor a menor: " << gruposOrdenados << endl;
