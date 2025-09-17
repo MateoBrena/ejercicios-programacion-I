@@ -1,0 +1,27 @@
+    /*  1 - Hacer un programa para ingresar una lista de 10 números y luego informar
+    cuántos de los números ingresados son perfectos. Se informa 1 resultado al
+    final */
+
+    int perfectos = 0;
+
+    for(int i=1; i <= 10; i++){
+        int numero;
+        int divisor = 1;
+        int sumaDivisores = 0;
+
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        while(divisor < numero){
+            if(numero % divisor == 0){
+                sumaDivisores += divisor;
+            }
+            divisor++;
+        }
+        if(numero > 0 && sumaDivisores == numero){
+            perfectos++;
+        }
+    }
+
+    cout << "Cantidad de numeros perfectos: " << perfectos << endl;
+
