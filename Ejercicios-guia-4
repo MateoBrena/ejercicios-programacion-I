@@ -539,7 +539,7 @@
     cout << "Posicion mayor primo encontrado: " << posMayorPrimo << endl << endl;
 
 
-    /*  10 - Dada una lista de números compuesta por 10 grupos y cada grupo separado del
+    /*  11 - Dada una lista de números compuesta por 10 grupos y cada grupo separado del
     siguiente por un cero, se pide determinar e informar:
     a) Para cada uno de los grupos el máximo y mínimo de los números pares. Se
     informan 2 resultados para cada grupo.
@@ -602,4 +602,128 @@
     }
 
     cout << "Cantidad de grupos alternados: " << gruposAlternados << endl;
+
+
+    /*  12 -  Se dispone de una lista de 10 grupos de números y cada uno de los grupos
+    estará compuesto por 5 números. Se pide determinar e informar:
+    a) Para cada uno de los 10 grupos la cantidad de números positivos, negativos
+    y ceros que lo componen. Se informan 3 resultados para cada uno de los 10
+    grupos.
+    b) Para cada uno de los 10 grupos el último número impar y en qué orden
+    apareció en ese grupo, si en un grupo no hubiera números impares informar
+    con un cartel aclaratorio. Se informan 2 resultados para cada uno de los 10
+    grupos.
+    c) Informar cuántos números impares hay en total entre los 10 grupos. Se
+    informa un resultado al final de todo, es decir no debe informar resultados
+    grupo por grupo */
+
+    int impares = 0;
+
+    for(int i=1; i <= 10; i++){
+        int numero;
+        int positivos = 0;
+        int negativos = 0;
+        int ceros = 0;
+        int ultimoImpar, posUltimoImpar;
+        bool hayImpar = false;
+
+        for(int j=0; j < 5; j++){
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            if(numero == 0){
+                ceros++;
+            }else if(numero > 0){
+                positivos++;
+            }else{
+                negativos++;
+            }
+
+            if(numero % 2 != 0){
+                impares++;
+                if(!hayImpar){
+                    ultimoImpar = numero;
+                    posUltimoImpar = j;
+                    hayImpar = true;
+                }else{
+                    if(j > posUltimoImpar){
+                        ultimoImpar = numero;
+                        posUltimoImpar = j;
+                    }
+                }
+            }
+        }
+
+        cout << endl << "Cantidad de positivos grupo " << i << ": " << positivos << endl;
+        cout << "Cantidad de ceros grupo " << i << ": " << ceros << endl;
+        cout << "Cantidad de negativos grupo " << i << ": " << negativos << endl;
+
+        if(hayImpar){
+            cout << endl << "Ultimo numero impar grupo " << i << ": " << ultimoImpar << endl << endl;
+        }else{
+            cout << "No se ingresaron impares en grupo " << i << endl;
+        }
+
+    }
+
+    cout << endl << "Cantidad de impares entre todos los grupos: " << impares << endl;
+
+
+    /*  13 -  Se dispone de una lista de 10 grupos de números y cada uno de los grupos
+    estará compuesto por 5 números. Se pide determinar e informar:
+    a) Para cada uno de los 10 grupos el promedio de los números que lo
+    componen. Se informa un resultado para cada uno de los 10 grupos.
+    b) Determinar e informar el valor mínimo de todos los grupos, indicando en cuál
+    grupo se encontró y su posición relativa en el mismo. Se informan 2
+    resultados al final de todo.
+    c) Indicar cuál de los 10 grupos tiene el mayor de los promedios y cuál es ese
+    valor promedio. Se informan 2 resultados al final de todo */
+
+    int valorMinimo, grupoValorMinimo, posValorMinimo;
+    int mayorPromedio, grupoMayorPromedio;
+
+    for(int i=1; i <= 3; i++){
+        float numero;
+        float totalGrupo = 0;
+        float promedioGrupo;
+
+        for(int j=1; j <= 5; j++){
+
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            totalGrupo += numero;
+
+            if(i == 1 && j == 1){
+                valorMinimo = numero;
+                grupoValorMinimo = i;
+                posValorMinimo = j;
+            }else{
+                if(numero < valorMinimo){
+                    valorMinimo = numero;
+                    grupoValorMinimo = i;
+                    posValorMinimo = j;
+                }
+            }
+        }
+
+        promedioGrupo = totalGrupo/5;
+
+        if(i == 1){
+            mayorPromedio = promedioGrupo;
+            grupoMayorPromedio = i;
+        }else{
+            if(promedioGrupo > mayorPromedio){
+                mayorPromedio = promedioGrupo;
+                grupoMayorPromedio = i;
+            }
+        }
+
+        cout << endl <<"Promedio grupo " << i << ": " << promedioGrupo << endl << endl;
+    }
+
+    cout << endl << "Valor minimo encontrado: " << valorMinimo << endl;
+    cout << "Grupo valor minimo: " << grupoValorMinimo << endl;
+    cout << "Posicion valor minimo: " << posValorMinimo << endl;
+    cout << endl << "Mayor promedio: " << mayorPromedio << ". De grupo: " << grupoMayorPromedio << endl;
 
