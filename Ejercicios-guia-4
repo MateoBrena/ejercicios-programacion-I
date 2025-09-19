@@ -402,3 +402,204 @@
         cout << "Posicion ultimo positivo en grupo " << i << ": " << posUltimoPositivo << endl << endl;
     }
 
+
+/*  10 - Dada una lista de números compuesta por grupos donde cada grupo está
+    separado del siguiente por un cero, y la lista de números finaliza cuando se
+    ingresan dos ceros consecutivos, se pide determinar e informar:
+    a) La cantidad de grupos en los que se detecten un total de 4 o más números
+    pares consecutivos.. Se informa 1 resultado al final.
+    b) Para cada uno de los grupos en los que se haya detectado números
+    negativos, el mayor y el segundo mayor de los mismos y en qué posición
+    estaban dentro del subgrupo. En los grupos sin negativos, informar “Grupo sin
+    negativos”. Se informan 4 resultados por cada grupo.
+    c) El mayor número primo de todos los grupos, informando además en cual
+    grupo y en qué posición del mismo fue detectado. Se informan 3 resultados al
+    final.
+    Ejemplo de una posible lista: 5, 4, 3, 0, 18, -5, 20, 0, 7, 11, 25, 4, 0, 0 */
+
+    int numero;
+    int cantidadGrupos = 0;
+    int cerosConsecutivos = 0;
+    int cantidadGrupos4Pares = 0;
+    int cantidadPrimos = 0;
+    int mayorPrimo, grupoMayorPrimo, posMayorPrimo;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    if(numero == 0){
+        cerosConsecutivos++;
+    }
+
+    while(cerosConsecutivos < 2){
+        cantidadGrupos++;
+        int paresConsecutivos  = 0;
+        int cantidadNegativos = 0;
+        int mayorNegativo, segundoMayorNegativo;
+        int posMayorNegativo, posSegundoMayorNegativo;
+        int cantidadNumerosGrupo = 0;
+
+        if(numero == 0){
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+        }
+
+        if(numero == 0){
+            cerosConsecutivos++;
+        }
+
+        while(numero != 0){
+            cantidadNumerosGrupo++;
+            cerosConsecutivos=0;
+            if(numero % 2 == 0){
+                paresConsecutivos++;
+                if(paresConsecutivos == 4){
+                    cantidadGrupos4Pares++;
+                }
+
+            }else{
+                paresConsecutivos = 0;
+            }
+            if(numero < 0){
+                cantidadNegativos++;
+                if(cantidadNegativos == 1){
+                    mayorNegativo = numero;
+                    posMayorNegativo = cantidadNumerosGrupo;
+                    mayorNegativo = numero;
+                    posMayorNegativo = cantidadNumerosGrupo;
+                }else if(cantidadNegativos == 2){
+                    if(numero > mayorNegativo){
+                        segundoMayorNegativo = mayorNegativo;
+                        posSegundoMayorNegativo = posMayorNegativo;
+                        mayorNegativo = numero;
+                        posMayorNegativo = cantidadNumerosGrupo;
+                    }else{
+                        segundoMayorNegativo = numero;
+                        posSegundoMayorNegativo = cantidadNumerosGrupo;
+                    }
+                }else{
+                    if(numero > mayorNegativo){
+                        segundoMayorNegativo = mayorNegativo;
+                        posSegundoMayorNegativo = posMayorNegativo;
+                        mayorNegativo = numero;
+                        posMayorNegativo = cantidadNumerosGrupo;
+                    }else if(numero > segundoMayorNegativo && numero < mayorNegativo){
+                        segundoMayorNegativo = numero;
+                        posSegundoMayorNegativo = cantidadNumerosGrupo;
+                    }
+                }
+            }
+            int divisor = 2;
+            int divisores = 2;
+
+            while(divisor < numero){
+                if(numero % divisor == 0){
+                    divisores++;
+                    break;
+                }
+                divisor++;
+            }
+
+            if(divisores == 2 && numero > 1){
+                cantidadPrimos++;
+                if(cantidadPrimos == 1){
+                    mayorPrimo = numero;
+                    grupoMayorPrimo = cantidadGrupos;
+                    posMayorPrimo = cantidadNumerosGrupo;
+                }else{
+                    if(numero > mayorPrimo){
+                        mayorPrimo = numero;
+                        grupoMayorPrimo = cantidadGrupos;
+                        posMayorPrimo = cantidadNumerosGrupo;
+                    }
+                }
+            }
+
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            if(numero == 0){
+            cerosConsecutivos++;
+            }
+        }
+
+        if(cantidadNegativos > 1){
+            cout << endl << "Mayor negativo grupo " << cantidadGrupos << ": " << mayorNegativo << endl;
+            cout << "Posicion mayor negativo grupo " << cantidadGrupos << ": " << posMayorNegativo << endl;
+            cout << "Segundo mayor negativo grupo " << cantidadGrupos << ": " << segundoMayorNegativo << endl;
+            cout << "Posicion segundo mayor negativo grupo " << cantidadGrupos << ": " << posSegundoMayorNegativo << endl << endl;
+        }else{
+            cout << endl << "No se ingresaron numeros negativos en grupo " << cantidadGrupos << endl << endl;
+        }
+    }
+
+    cout << endl << "Grupos con 4 o mas pares consecutivos: " << cantidadGrupos4Pares << endl;
+    cout << "Mayor primo encontrado: " << mayorPrimo << endl;
+    cout << "Grupo mayor primo encontrado: " << grupoMayorPrimo << endl;
+    cout << "Posicion mayor primo encontrado: " << posMayorPrimo << endl << endl;
+
+
+    /*  10 - Dada una lista de números compuesta por 10 grupos y cada grupo separado del
+    siguiente por un cero, se pide determinar e informar:
+    a) Para cada uno de los grupos el máximo y mínimo de los números pares. Se
+    informan 2 resultados para cada grupo.
+    b) Informar cuántos grupos están formados por todos números alternados
+    positivos y negativos. Se informa 1 resultado al final.
+    Ejemplo 1 de un grupo alternado: 2, -3, 8, -10, 25, -13, 0
+    Ejemplo 2 de un grupo alternado: -2, 3, -8, 10, -25, 6, 0 */
+
+    int gruposAlternados = 0;
+
+    for(int i=1; i <= 10; i++){
+
+        int numero, anterior;
+        int j = 0;
+        int cantidadPares = 0;
+        int maximoPar, minimoPar;
+        bool alternado = true;
+
+        if(j == 0){
+            anterior = 0;
+        }
+
+        cout << "Ingrese un numero: ";
+        cin >> numero;
+
+        while(numero != 0){
+            j++;
+            if(numero > 0 && anterior > 0){
+                alternado = false;
+            }else if(numero < 0 && anterior < 0){
+                alternado = false;
+            }
+
+            if(numero % 2 == 0){
+                cantidadPares++;
+                if(cantidadPares == 1){
+                    maximoPar = numero;
+                    minimoPar = numero;
+                }else{
+                    if(numero < minimoPar){
+                        minimoPar = numero;
+                    }
+                    if(numero > maximoPar){
+                        maximoPar = numero;
+                    }
+                }
+            }
+
+            anterior = numero;
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+        }
+
+        if(alternado){
+            gruposAlternados++;
+        }
+
+        cout << endl << "Maximo par grupo " << i << ": " << maximoPar << endl;
+        cout << "Minimo par grupo " << i << ": " << minimoPar << endl << endl;
+    }
+
+    cout << "Cantidad de grupos alternados: " << gruposAlternados << endl;
+
