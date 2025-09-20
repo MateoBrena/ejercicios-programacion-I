@@ -727,3 +727,94 @@
     cout << "Posicion valor minimo: " << posValorMinimo << endl;
     cout << endl << "Mayor promedio: " << mayorPromedio << ". De grupo: " << grupoMayorPromedio << endl;
 
+
+    /*  14 - Dada una lista de números compuesta por grupos, cada grupo separado del
+    siguiente por un cero, ingresando un número cero cuando no hay más grupos,
+    se pide determinar e informar:
+    a) Para cada uno de los grupos el máximo de los números negativos y el
+    mínimo de los números positivos. Se informan 2 resultados por cada grupo.
+    b) Para cada uno de los grupos el porcentaje de números pares y números
+    impares. Se informan 2 resultados por cada grupo.
+    c) Cuántos números positivos había en total entre los grupos. Se informa 1
+    resultado al final */
+
+    int numero;
+    int cantidadGrupos = 0;
+    int positivos = 0;
+    int cerosConsecutivos = 0;
+
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    if(numero == 0){
+        cerosConsecutivos++;
+    }
+
+    while(cerosConsecutivos < 2){
+        cantidadGrupos++;
+        bool hayPositivo = false;
+        bool hayNegativo = false;
+        int menorPositivo, mayorNegativo;
+        int cantidadPares = 0;
+        int cantidadImpares = 0;
+        float cantidadNumerosGrupo = 0;
+
+        if(numero == 0){
+            cout << "Ingrese un numero(dentro del primer ciclo): ";
+            cin >> numero;
+        }
+
+        if(numero == 0){
+            cerosConsecutivos++;
+        }
+
+        while(numero != 0){
+            cantidadNumerosGrupo++;
+            if(numero > 0){
+                positivos++;
+                if(!hayPositivo){
+                    menorPositivo = numero;
+                    hayPositivo = true;
+                }else{
+                    if(numero < menorPositivo){
+                        menorPositivo = numero;
+                    }
+                }
+            }else{
+                if(!hayNegativo){
+                    mayorNegativo = numero;
+                    hayNegativo = true;
+                }else{
+                    if(numero > mayorNegativo){
+                        mayorNegativo = numero;
+                    }
+                }
+            }
+
+            if(numero % 2 == 0){
+                cantidadPares++;
+            }else{
+                cantidadImpares++;
+            }
+
+            cout << "Ingrese un numero: ";
+            cin >> numero;
+
+            if(numero == 0){
+                cerosConsecutivos++;
+            }
+        }
+
+        float porcentajePares = (cantidadPares*100)/cantidadNumerosGrupo;
+        float porcentajeImpares = (cantidadImpares*100)/cantidadNumerosGrupo;
+
+        if(cantidadNumerosGrupo > 0){
+            cout << endl << "Minimo positivo grupo " << cantidadGrupos << ": " << menorPositivo << endl;
+            cout << "Maximo negativo grupo " << cantidadGrupos << ": " << mayorNegativo << endl;
+            cout << "Porcentaje de impares grupo: " << cantidadGrupos << ": " << porcentajeImpares << "%" << endl;
+            cout << "Porcentaje de pares grupo: " << cantidadGrupos << ": " << porcentajePares << "%" << endl << endl;
+        }
+    }
+
+    cout << endl << "Cantidad de numeros positivos entre todos los grupos: " << positivos << endl;
+
