@@ -45,11 +45,11 @@
     los guarde en un vector. Luego	recorrer ese vector para calcular
     el promedio. Mostrar por pantalla los valores que son mayores al promedio.*/
 
-    int numeros[10];
+    int numeros[100];
     int suma;
-    int cantidad = 10;
+    int cantidad = 100;
 
-    for(int i=0; i<10; i++){
+    for(int i=0; i<100; i++){
         cout << "Ingrese un numero: ";
         cin >> numeros[i];
 
@@ -59,7 +59,7 @@
     float promedio = suma/(float)cantidad;
     cout << endl << "Promedio: " << promedio << endl;
 
-    for(int j=0; j<10; j++){
+    for(int j=0; j<100; j++){
         if(numeros[j] > promedio){
             cout << "Mayor al promedio: " << numeros[j] << endl;
         }
@@ -70,11 +70,11 @@
     Determinar e informar luego si el vector está ordenado en forma creciente.
     Por ejemplo: el	vector (1, 3, 5, 7, 9) está	ordenado, el vector	(1,	5, 3, 7) no	lo está.*/
 
-    int numeros[10];
+    int numeros[50];
     int anterior;
     bool ordenado = true;
 
-    for(int i=0; i<10; i++){
+    for(int i=0; i<50; i++){
         cout << "Ingrese un numero: ";
         cin >> numeros[i];
 
