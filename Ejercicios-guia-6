@@ -96,3 +96,87 @@
     }
 
 
+    /* 5. Se ingresa una lista de 20 números en	un vector. Se pide ordenar
+    dichos números en forma	decreciente (de	mayor a	menor).	Mostrar	el listado
+    ordenado informando	también	la posición de cada número en el vector original.*/
+
+
+    /* 6. Hacer	un	programa que solicite una cadena de	caracteres
+    y dos caracteres sueltos (tres ingresos). El programa deberá generar
+    una	cadena donde todas las ocurrencias del primer carácter dado	hayan
+    sido reemplazadas por el segundo. Mostrar el resultado en pantalla.*/
+
+    string texto;
+    char letra1, letra2;
+
+    cout << "Ingrese un texto: ";
+    getline(cin,texto);
+
+    cout << "Ingrese una letra: ";
+    cin >> letra1;
+
+    cout << "Ingrese otra letra: ";
+    cin >> letra2;
+
+    for(int i=0; i<texto.length();i++){
+        if(texto[i] == letra1){
+            texto[i] = letra2;
+        }
+    }
+
+    cout << endl << "Texto modificado: " << texto << endl;
+
+
+    /* 7. Dada una cadena de caracteres, mostrar por
+    pantalla cada uno de los caracteres que lo compone.*/
+
+    string texto;
+
+    cout << "Ingrese un texto: ";
+    getline(cin,texto);
+
+    for(int i=0; i<texto.length();i++){
+        cout << texto[i] << endl;
+    }
+
+
+    /* 8. Dada una cadena de caracteres	y un carácter (dos	ingresos),
+    mostrar	por	pantalla la	primera posición donde aparece ese carácter
+    o un -1	si el carácter no se encuentra dentro de la	cadena.*/
+
+    string texto;
+    char carac;
+    int posicion;
+    bool coincidencia = false;
+
+    cout << "Ingrese un texto: ";
+    getline(cin,texto);
+
+    cout << "Ingrese un caracter: ";
+    cin >> carac;
+
+    for(int i=0; i<texto.length();i++){
+        if(texto[i] == carac){
+            posicion = i+1;
+            coincidencia = true;
+            break;
+        }
+    }
+
+    if(coincidencia){
+        cout << endl <<"Coincidencia encontrada en posicion: " << posicion << endl;
+    }else{
+        cout << endl << "-1" << endl;
+    }
+
+
+    /* 9. Una empresa comercializa 15 tipos de artículos y por cada
+    venta realizada genera un registro con los siguientes datos:
+    - Número de	Artículo (1 a 15)
+    - Cantidad Vendida
+    Puede haber	varios registros para el mismo artículo	y el último se
+    indica con número de artículo igual	a 0.
+    Se pide	determinar e informar:
+    a) El número de	artículo que más se	vendió en total.
+    b) Los números de artículos	que	no registraron ventas.
+    c) Cuantas unidades	se vendieron del número	de artículo	10 */
