@@ -100,6 +100,33 @@
     dichos números en forma	decreciente (de	mayor a	menor).	Mostrar	el listado
     ordenado informando	también	la posición de cada número en el vector original.*/
 
+    int numeros[20];
+    bool intercambiados;
+
+    for(int i=0; i<20; i++){
+        cout << "Ingrese un numero: ";
+        cin >> numeros[i];
+    }
+
+    for(int j=0; j<20-1; j++){
+        intercambiados=false;
+        for(int k=0; k<20-j-1; k++){
+            if(numeros[k] < numeros[k+1]){
+                swap(numeros[k],numeros[k+1]);
+                intercambiados = true;
+            }
+        }
+        if(!intercambiados){
+            break;
+        }
+    }
+
+    cout << "-----------Numeros ordenados-----------" << endl;
+
+    for(int i=0; i<20; i++){
+        cout << numeros[i] << endl;
+    }
+
 
     /* 6. Hacer	un	programa que solicite una cadena de	caracteres
     y dos caracteres sueltos (tres ingresos). El programa deberá generar
