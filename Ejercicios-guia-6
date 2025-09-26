@@ -100,6 +100,7 @@
     dichos números en forma	decreciente (de	mayor a	menor).	Mostrar	el listado
     ordenado informando	también	la posición de cada número en el vector original.*/
 
+    #include <bits/stdc++.h>
     int numeros[20];
     bool intercambiados;
 
