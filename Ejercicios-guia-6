@@ -100,32 +100,40 @@
     dichos números en forma	decreciente (de	mayor a	menor).	Mostrar	el listado
     ordenado informando	también	la posición de cada número en el vector original.*/
 
-    #include <bits/stdc++.h>
     int numeros[20];
+    int pos[20];
     bool intercambiados;
 
-    for(int i=0; i<20; i++){
+    for (int i = 0; i < 20; i++) {
         cout << "Ingrese un numero: ";
         cin >> numeros[i];
+        pos[i] = i;
     }
 
-    for(int j=0; j<20-1; j++){
-        intercambiados=false;
-        for(int k=0; k<20-j-1; k++){
-            if(numeros[k] < numeros[k+1]){
-                swap(numeros[k],numeros[k+1]);
+    for (int j = 0; j < 20 - 1; j++) {
+        intercambiados = false;
+        for (int k = 0; k < 20 - j - 1; k++) {
+            if (numeros[k] < numeros[k + 1]) {
+                int aux = numeros[k];
+                numeros[k] = numeros[k + 1];
+                numeros[k + 1] = aux;
+
+                int auxPos = pos[k];
+                pos[k] = pos[k + 1];
+                pos[k + 1] = auxPos;
+
                 intercambiados = true;
             }
         }
-        if(!intercambiados){
+        if (!intercambiados) {
             break;
         }
     }
 
     cout << "-----------Numeros ordenados-----------" << endl;
 
-    for(int i=0; i<20; i++){
-        cout << numeros[i] << endl;
+    for (int i = 0; i < 20; i++) {
+        cout << "Numero: " << numeros[i] << " | Posicion original: " << pos[i] << endl;
     }
 
 
@@ -208,3 +216,38 @@
     a) El número de	artículo que más se	vendió en total.
     b) Los números de artículos	que	no registraron ventas.
     c) Cuantas unidades	se vendieron del número	de artículo	10 */
+
+    int ventas[15]={0};
+    int cantVen;
+    int nroArt;
+    int artMasVendido;
+    int mayorCantidad=-1;
+
+    cout<<"Ingrese nro art: ";
+    cin>>nroArt;
+
+    while(nroArt != 0){
+        cout<<"Ingrese la cantidad vendida: ";
+        cin>>cantVen;
+
+        ventas[nroArt-1]+=cantVen;
+
+        cout<<"Ingrese nro art: ";
+        cin>>nroArt;
+    }
+
+    for(int i=0;i<15 ;i++){
+        if(ventas[i] > mayorCantidad){
+            mayorCantidad = ventas[i];
+            artMasVendido = i+1;
+        }
+        if(ventas[i]==0){
+        cout<<"No se vendio el articulo numero: "<<i+1<<endl;
+        }
+    }
+
+    cout << "Articulo mas vendido: " << artMasVendido << endl;
+    cout << "Ventas de articulo numero 10: " << ventas[9] << endl;
+
+    return 0;
+}
