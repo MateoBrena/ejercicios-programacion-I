@@ -1,0 +1,104 @@
+    /* 1. Una empresa que fabrica 20 artículos tiene la	siguiente información
+    para cada uno de ellos:
+    - Código de	Artículo (4	dígitos, no	correlativos)
+    - Precio Unitario
+    Este primer	lote no	se	encuentra ordenado.
+    Cuenta por otro	lado con un	lote de	registros con las ventas del año
+    anterior. Cada registro contiene la	siguiente información:
+    - Número de	Cliente	(1 a 300)
+    - Código de	Artículo (4	dígitos	no correlativos)
+    - Mes(1	a 12)
+    - Día(1	a 31)
+    - Cantidad	vendida
+    Puede haber	más	de un registro para	el mismo artículo. El lote finaliza	con
+    un registro con número de cliente igual a cero. Se pide:
+    a) Un	listado	con	el	siguiente	formato:
+    Código de Artículo      Cantidad Total Vendida
+            9                       999
+    Este listado debe salir	ordenado de	mayor a	menor por cantidad total vendida.
+    b. Informar, si	los	hubiera, los nombres de	los	meses en que no	hubo ventas.
+    c. Informar	 los códigos de	los	artículos cuyas	ventas en cantidad son mayores
+    al promedio.*/
+
+    const int N=20;
+    int codigos[N];
+    int precioUnitario[N];
+    int totalPorArticulo[N]={0};
+    int ventasPorMes[12]={0};
+
+    for (int i=0; i < N; i++){
+        cout << "Codigo articulo " << i+1 << ": ";
+        cin >> codigos[i];
+        cout << "Precio: ";
+        cin >> precioUnitario[i];
+    }
+
+    int cliente, codigo, mes, dia, cantidad;
+
+    cout << "Ingrese numero de cliente (0 para finalizar): ";
+    cin >> cliente;
+
+    while(cliente != 0){
+        cout << "Ingrese codigo de articulo: ";
+        cin >> codigo;
+        cout << "Ingrese mes: ";
+        cin >> mes;
+        cout << "Inrese dia: ";
+        cin >> dia;
+        cout << "Ingrese cantidad vendida: ";
+        cin >> cantidad;
+
+        int pos=-1;
+        for(int i=0; i < N; i++){
+            if(codigos[i] == codigo){
+                pos = i;
+                break;
+            }
+        }
+
+        if(pos != -1){
+            totalPorArticulo[pos] += cantidad;
+            ventasPorMes[mes-1] += cantidad;
+        }
+
+        cout << "Ingrese numero de cliente (0 para finalizar): ";
+        cin >> cliente;
+    }
+
+    for (int j = 0; j < N-1; j++) {
+        for (int k = 0; k < N-1-j; k++) {
+            if (totalPorArticulo[k] < totalPorArticulo[k+1]) {
+                int auxCant = totalPorArticulo[k];
+                totalPorArticulo[k] = totalPorArticulo[k+1];
+                totalPorArticulo[k+1] = auxCant;
+
+                int auxCod = codigos[k];
+                codigos[k] = codigos[k+1];
+                codigos[k+1] = auxCod;
+            }
+        }
+    }
+
+    cout << "\nCodigo\tCantidad\n";
+    for (int i = 0; i < N; i++) {
+        cout << codigos[i] << "\t" << totalPorArticulo[i] << endl;
+    }
+
+    cout << "\nMeses sin ventas:\n";
+    for (int i = 0; i < 12; i++) {
+        if (ventasPorMes[i] == 0)
+            cout << "Mes " << i+1 << endl;
+    }
+
+    int suma = 0;
+    for (int i = 0; i < N; i++){
+        suma += totalPorArticulo[i];
+    }
+    float promedio = (float)suma / N;
+
+    cout << "\nArticulos con ventas > promedio (" << promedio << "):\n";
+    for (int i = 0; i < N; i++) {
+        if (totalPorArticulo[i] > promedio)
+            cout << codigos[i] << " (" << totalPorArticulo[i] << ")\n";
+    }
+
