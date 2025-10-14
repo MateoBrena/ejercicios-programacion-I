@@ -32,3 +32,89 @@ int esPar(int num){
     return 0;
 }
 
+
+/* 2- Hacer una función llamada CalcularMaximo que determine el máximo
+entre dos números. La función debe recibir dos números enteros por valor
+y devolver el valor más grande. Si los números son iguales debe devolver
+cualquiera de los dos. La función no debe mostrar nada por pantalla.
+Hacer un programa para ingresar dos números y, utilizando CalcularMaximo,
+emita luego el número mayor de ambos.*/
+
+#include <iostream>
+using namespace std;
+
+int calcularMaximos(int num1, int num2);
+
+int main(){
+
+    int a, b;
+
+    cout << "Ingrese un numero: ";
+    cin >> a;
+    cout << "Ingrese otro numero: ";
+    cin >> b;
+
+    int r = calcularMaximos(a,b);
+
+    cout << "El numero mayor es: " << r;
+
+return 0;
+}
+
+int calcularMaximos(int num1, int num2){
+    if(num1 > num2){
+        return num1;
+    }
+    return num2;
+}
+
+
+/* 3- Hacer una función llamada EsPrimo que determine si un número
+es primo o no. La función debe recibir el número y devolver true si
+es primo o false si no lo es. La función no debe mostrar nada por pantalla.
+Hacer un programa para ingresar un número y, utilizando EsPrimo, emita
+luego un cartel indicando si el número ingresado es primo o no es primo. */
+
+#include <iostream>
+using namespace std;
+
+bool esPrimo(int num);
+
+int main(){
+
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    bool r = esPrimo(n);
+
+    if(r){
+        cout << "El numero "<< n << " es primo";
+    }else{
+        cout << "El numero "<< n << " no es primo";
+    }
+
+
+return 0;
+}
+
+bool esPrimo(int num){
+    int divisor = 2;
+    int divisores = 2;
+
+    while(divisor < num){
+        if(num % divisor == 0){
+            divisores++;
+            break;
+        }
+        divisor++;
+    }
+
+    if(divisores == 2 && num > 1){
+        return true;
+    }
+
+    return false;
+}
+
