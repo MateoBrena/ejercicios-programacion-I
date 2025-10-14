@@ -1,0 +1,34 @@
+/* 1- Hacer una función llamada EsPar que determine si un número es par o no.
+La función debe recibir un número entero por valor y devolver true si
+es par o false si no lo es. La función no debe mostrar nada por pantalla.
+Hacer un programa para ingresar un número y, utilizando EsPar,
+emita luego un cartel indicando si el número ingresado es par o no es par.*/
+
+#include <iostream>
+using namespace std;
+
+int esPar(int num);
+
+int main(){
+
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    if(esPar(n) == 1){
+        cout << n << " es par";
+    }else{
+        cout << n << " es impar";
+    }
+
+return 0;
+}
+
+int esPar(int num){
+    if(num % 2 == 0){
+        return 1;
+    }
+    return 0;
+}
+
