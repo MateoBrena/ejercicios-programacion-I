@@ -118,3 +118,108 @@ bool esPrimo(int num){
     return false;
 }
 
+
+/* 4- Hacer una función llamada EsPrimoSophieGermain que reciba un
+número entero y determine si el mismo es un número primo de Sophie
+Germain. Debe devolver verdadero si lo es y falso si no lo es.
+Un número es primo de Sophie Germain, si el número n es primo y 2*n+1
+también lo es. Hacer un programa para ingresar un número y, utilizando
+EsPrimoSophieGermain, emita luego un cartel indicando si el número
+ingresado es primo Sophie Germain o no lo es.*/
+
+#include <iostream>
+using namespace std;
+
+bool esPrimoSophieGermain(int num);
+
+int main(){
+
+    int n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    bool r = esPrimoSophieGermain(n);
+
+    if(r){
+        cout << "El numero "<< n << " es primo SophieGermain";
+    }else{
+        cout << "El numero "<< n << " NO es primo SophieGermain";
+    }
+
+
+return 0;
+}
+
+bool esPrimoSophieGermain(int num){
+    int divisor = 2;
+    int divisores = 2;
+
+    while(divisor < num){
+        if(num % divisor == 0){
+            divisores++;
+            break;
+        }
+        divisor++;
+    }
+
+    if(divisores == 2 && num > 1){
+
+        int num1 = num*2+1;
+        int divisor1 = 2;
+        int divisores1 = 2;
+
+        while(divisor1 < num1){
+            if(num1 % divisor1 == 0){
+                divisores1++;
+                break;
+            }
+            divisor1++;
+        }
+
+        if(divisores1 == 2 && num1 > 1){
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+/* 5- Hacer una función llamada Redondear que reciba como parámetro
+un número float y devuelva un número entero con el redondeo del mismo.
+Si recibe 7.48, debe devolver 7. Si recibe 7.5, debe devolver 8.Hacer
+un programa para ingresar un número y, utilizando Redondear, emita luego
+ un cartel indicando el número redondeado.*/
+
+#include <iostream>
+using namespace std;
+
+int redondear(float num);
+
+int main(){
+
+    float n;
+
+    cout << "Ingrese un numero: ";
+    cin >> n;
+
+    int r = redondear(n);
+
+    cout << "El numero redondeado es: " << r;
+
+return 0;
+}
+
+int redondear(float num){
+    int num1 = num;
+
+    if(num >= num1+0.50){
+        num1 = num+1;
+    }else{
+        num1 = num;
+    }
+
+return num1;
+}
+
