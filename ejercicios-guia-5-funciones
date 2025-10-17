@@ -228,6 +228,60 @@ return num1;
 día y un string llamado nombre por referencia y le asigne el nombre 
 correspondiente según el número de día. Siendo 0 = Domingo y 6 = Sábado.*/
 
+#include <iostream>
+#include <string>
+using namespace std;
+
+string nombrarDia(int dia, string nombre);
+
+int main(){
+
+    int a;
+    string b;
+
+    cout << "Ingrese un numero: ";
+    cin >> a;
+    cout << "Ingrese el nombre del dia: ";
+    cin >> b;
+
+    string r= nombrarDia(a, b);
+
+    cout << "El numero corresponde al dia " << r;
+
+
+return 0;
+}
+
+string nombrarDia(int dia, string nombre){
+
+     switch(dia){
+        case 0:
+            return nombre="Domingo";
+            break;
+        case 1:
+            return nombre="Lunes";
+            break;
+        case 2:
+            return nombre="Martes";
+            break;
+        case 3:
+            return nombre="Miercoles";
+            break;
+        case 4:
+            return nombre="Jueves";
+            break;
+        case 5:
+            return nombre="Viernes";
+            break;
+        case 6:
+            return nombre="Sabado";
+            break;
+        default:
+            return nombre="No se ingreso un numero valido";
+            break;
+    }
+}
+
 
 /* 7- Escribir una función CalcularMaximoAbsoluto que reciba dos números
 y retorne el máximo absoluto de ambos. Por ejemplo el máximo absoluto de 
@@ -327,6 +381,50 @@ int esBisiesto(int num){
 número recibido es perfecto y 0 si no es perfecto. Hacer un programa
 para que, dada una lista de números que finaliza con cero, informe
 cuántos de ellos eran perfectos. Utilizar la función solicitada.*/
+
+#include <iostream>
+using namespace std;
+
+int esPerfecto(int num);
+
+int main(){
+
+    int a;
+
+    cout << "Ingrese un numero: ";
+    cin >> a;
+
+    int r= esPerfecto(a);
+
+    if(r){
+        cout << "El numero " << a << " es perfecto";
+    }else{
+        cout << "El numero " << a << " NO es perfecto";
+    }
+
+
+
+return 0;
+}
+
+int esPerfecto(int num){
+
+    int sumaDivisores = 0;
+    int divisor = 1;
+
+    while(divisor < num){
+        if(num % divisor == 0){
+            sumaDivisores += divisor;
+        }
+        divisor++;
+    }
+
+    if(num == sumaDivisores){
+        return 1;
+    }
+
+    return 0;
+}
 
 
 /* 10- Hacer una función que reciba un código de naipe (del 1 al 40)
