@@ -499,3 +499,62 @@ número entero y devuelva true si el número enviado es un Número
 Armstrong y false si no lo es. Un número N es un número Armstrong
 si la suma de sus cifras elevadas a la cantidad de cifras del
 número da como resultado N.*/
+
+#include <iostream>
+using namespace std;
+
+int esNumeroArmstrong(int num);
+
+int main(){
+
+    int a;
+
+    cout << "Ingrese un numero: ";
+    cin >> a;
+
+    int r = esNumeroArmstrong(a);
+
+    if(r){
+        cout << "El numero " << a << " es Armstrong";
+    }else{
+        cout << "El numero " << a << " NO es Armstrong";
+    }
+
+return 0;
+}
+
+int esNumeroArmstrong(int num){
+    int numero = num;
+    int n = num;
+    int digitos = 0;
+    int total = 0;
+
+    if(num == 0){
+        return digitos = 1;
+    }
+
+    while(numero != 0){
+        numero = numero / 10;
+        digitos++;
+    }
+
+    for(int i=0; i < digitos; i++){
+        int acumulador = 1;
+        int resto = n % 10;
+        n = n / 10;
+
+        for(int j=0; j < digitos; j++){
+            acumulador *= resto;
+        }
+
+        total += acumulador;
+    }
+
+    if(total == num){
+        return true;
+    }
+
+    return false;
+
+    return 0;
+}
