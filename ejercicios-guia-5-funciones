@@ -503,7 +503,7 @@ número da como resultado N.*/
 #include <iostream>
 using namespace std;
 
-int esNumeroArmstrong(int num);
+bool esNumeroArmstrong(int num);
 
 int main(){
 
@@ -512,7 +512,7 @@ int main(){
     cout << "Ingrese un numero: ";
     cin >> a;
 
-    int r = esNumeroArmstrong(a);
+    bool r = esNumeroArmstrong(a);
 
     if(r){
         cout << "El numero " << a << " es Armstrong";
@@ -523,7 +523,7 @@ int main(){
 return 0;
 }
 
-int esNumeroArmstrong(int num){
+bool esNumeroArmstrong(int num){
     int numero = num;
     int n = num;
     int digitos = 0;
