@@ -289,6 +289,39 @@ por ser divisible por 400, aun siendo divisible por 100.Hacer un programa
 para ingresar una lista de 10 valores de años y contar cuantos son bisiestos.
 Utilizar la función solicitada.*/
 
+#include <iostream>
+using namespace std;
+
+int esBisiesto(int num);
+
+int main(){
+
+    int a;
+
+    cout << "Ingrese el anio: ";
+    cin >> a;
+
+    int r = esBisiesto(a);
+
+    if(r){
+        cout << "El anio " << a << " es bisiesto" << endl;
+    }else{
+        cout << "El anio " << a << " NO es bisiesto" << endl;
+    }
+
+return 0;
+}
+
+int esBisiesto(int num){
+    if(num % 400 == 0){
+        return 1;
+    } else if(num % 4 == 0 && num % 100 != 0){
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 
 /* 9- Escribir una función que reciba un número y retorne 1 si el
 número recibido es perfecto y 0 si no es perfecto. Hacer un programa
@@ -311,6 +344,41 @@ un número entero y determine y devuelva la cantidad de dígitos del
 número. Por ejemplo, si se recibe el número 840 debe devolver 3.
 Hacer un programa que, a partir de un número que ingresa el usuario,
 informe por pantalla la cantidad de dígitos del número ingresado.*/
+
+#include <iostream>
+using namespace std;
+
+int contarDigitos(int num);
+
+int main(){
+
+    int a;
+
+    cout << "Ingrese un numero: ";
+    cin >> a;
+
+    int r = contarDigitos(a);
+
+    cout << "Cantidad de digitos del numero " << a << ": " << r;
+
+return 0;
+}
+
+int contarDigitos(int num){
+
+    int digitos = 0;
+
+    if(num == 0){
+        return digitos = 1;
+    }
+
+    while(num != 0){
+        num = num / 10;
+        digitos++;
+    }
+
+    return digitos;
+}
 
 
 /* 12- Escribir una función de nombre validarFecha que reciba 3 valores
